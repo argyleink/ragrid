@@ -4,7 +4,9 @@
   "description": "Intrinsic and rag flexbox attribute based grid",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ragrid": "stylus ragrid.styl -o ragrid.css",
+    "crunch": "csso ragrid.css -o ragrid.min.css"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/argyleink/ragrid/issues"
   },
-  "homepage": "https://github.com/argyleink/ragrid#readme"
+  "homepage": "https://github.com/argyleink/ragrid#readme",
+  "dependencies": {
+    "csso": "^3.0.1",
+    "csso-cli": "^1.0.0",
+    "stylus": "^0.54.5"
+  }
 }

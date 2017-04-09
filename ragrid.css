@@ -1,0 +1,123 @@
+[grid] {
+  display: flex;
+  flex-wrap: wrap;
+  contain: layout;
+/*
+  ALIGN
+    - Horizontal: Left, Center, Right
+    - Vertical: Top, Center, Bottom
+  */
+/*
+  DISTRIBUTE
+    - Horizontal: Left, Center, Right
+    - Vertical: Top, Center, Bottom
+  */
+/*
+  SIZE
+    - Instead of col-xs-12 or whatever
+    - Specify size on the parent
+  */
+}
+[grid][order~="reverse"] {
+  flex-direction: row-reverse;
+}
+[grid][horizontally-aligned~="left"] {
+  justify-content: flex-start;
+}
+[grid][horizontally-aligned~="center"] {
+  justify-content: center;
+}
+[grid][horizontally-aligned~="right"] {
+  justify-content: flex-end;
+}
+[grid][vertically-aligned~="top"] {
+  align-items: flex-start;
+}
+[grid][vertically-aligned~="center"] {
+  align-items: center;
+}
+[grid][vertically-aligned~="bottom"] {
+  align-items: flex-end;
+}
+[grid][vertically-aligned~="baseline"] {
+  align-items: baseline;
+}
+[grid][horizontally-distributed~="around"] {
+  justify-content: space-around;
+}
+[grid][horizontally-distributed~="between"] {
+  justify-content: space-between;
+}
+[grid][horizontally-distributed~="equal"] > * {
+  flex-grow: 1;
+}
+[grid][vertically-distributed~="around"] {
+  align-content: space-around;
+}
+[grid][vertically-distributed~="between"] {
+  align-content: space-between;
+}
+[grid][vertically-distributed~="equal"] {
+  align-items: stretch;
+}
+[grid][column-size~="1/2"] > * {
+  flex-basis: 50%;
+}
+[grid][column-size~="1/3"] > * {
+  flex-basis: 33.333333333333336%;
+}
+[grid][column-size~="1/4"] > * {
+  flex-basis: 25%;
+}
+[grid][column-size~="1/5"] > * {
+  flex-basis: 20%;
+}
+[grid][column-size~="1/6"] > * {
+  flex-basis: 16.666666666666668%;
+}
+[grid][column-size~="1/7"] > * {
+  flex-basis: 14.285714285714286%;
+}
+[grid][column-size~="1/8"] > * {
+  flex-basis: 12.5%;
+}
+[grid][column-size~="1/9"] > * {
+  flex-basis: 11.11111111111111%;
+}
+[grid][column-size~="1/10"] > * {
+  flex-basis: 10%;
+}
+[grid][column-size~="1/11"] > * {
+  flex-basis: 9.090909090909092%;
+}
+[grid][column-size~="1/12"] > * {
+  flex-basis: 8.333333333333334%;
+}
+[grid~="columns"][vertically-distributed~="equal"] {
+  align-items: stretch;
+}
+[grid~="columns"][vertically-distributed~="equal"] > * {
+  height: auto;
+}
+[grid~="rows"] {
+  flex-direction: column;
+  align-items: flex-start;
+}
+[grid~="rows"][order~="reverse"] {
+  flex-direction: column-reverse;
+}
+[grid~="rows"][horizontally-aligned~="center"] {
+  align-items: center;
+}
+[grid~="rows"][horizontally-aligned~="right"] {
+  align-items: flex-end;
+}
+[grid~="rows"][vertically-distributed~="around"] {
+  justify-content: space-around;
+}
+[grid~="rows"][vertically-distributed~="between"] {
+  justify-content: space-between;
+}
+[grid~="rows"][vertically-distributed~="equal"] > * {
+  width: initial;
+}

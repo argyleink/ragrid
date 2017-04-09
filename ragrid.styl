@@ -1,0 +1,107 @@
+// shared styles for columns and rows
+// yes it's a general namespace, how many othe grids are you importing?
+// it reads so nice in the HTML and CSS right? =)
+[grid]
+  display flex
+  flex-wrap wrap
+  
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/contain
+  contain layout
+  
+  &[order~="reverse"]
+    flex-direction row-reverse
+  
+  /*
+  ALIGN
+    - Horizontal: Left, Center, Right
+    - Vertical: Top, Center, Bottom
+  */
+  &[horizontally-aligned~="left"]
+    justify-content flex-start
+  &[horizontally-aligned~="center"]
+    justify-content center
+  &[horizontally-aligned~="right"]
+    justify-content flex-end
+  &[vertically-aligned~="top"]
+    align-items flex-start
+  &[vertically-aligned~="center"]
+    align-items center
+  &[vertically-aligned~="bottom"]
+    align-items flex-end
+  &[vertically-aligned~="baseline"]
+    align-items baseline
+  
+  /*
+  DISTRIBUTE
+    - Horizontal: Left, Center, Right
+    - Vertical: Top, Center, Bottom
+  */
+  &[horizontally-distributed~="around"]
+    justify-content space-around
+  &[horizontally-distributed~="between"]
+    justify-content space-between
+  &[horizontally-distributed~="equal"]
+    > *
+      flex-grow 1
+  &[vertically-distributed~="around"]
+    align-content space-around
+  &[vertically-distributed~="between"]
+    align-content space-between
+  &[vertically-distributed~="equal"]
+    align-items stretch
+      
+  /*
+  SIZE
+    - Instead of col-xs-12 or whatever
+    - Specify size on the parent
+  */
+  
+  &[column-size~="1/2"] > *
+    flex-basis (100% / 2)
+  &[column-size~="1/3"] > *
+    flex-basis (100% / 3)
+  &[column-size~="1/4"] > *
+    flex-basis (100% / 4)
+  &[column-size~="1/5"] > *
+    flex-basis (100% / 5)
+  &[column-size~="1/6"] > *
+    flex-basis (100% / 6)
+  &[column-size~="1/7"] > *
+    flex-basis (100% / 7)
+  &[column-size~="1/8"] > *
+    flex-basis (100% / 8)
+  &[column-size~="1/9"] > *
+    flex-basis (100% / 9)
+  &[column-size~="1/10"] > *
+    flex-basis (100% / 10)
+  &[column-size~="1/11"] > *
+    flex-basis (100% / 11)
+  &[column-size~="1/12"] > *
+    flex-basis (100% / 12)  
+
+// column specific
+[grid~="columns"]
+  &[vertically-distributed~="equal"]
+    align-items stretch
+    > *
+      height auto
+    
+// row specific 
+[grid~="rows"]
+  flex-direction column
+  align-items flex-start
+  
+  &[order~="reverse"]
+    flex-direction column-reverse
+  &[horizontally-aligned~="center"]
+    align-items center
+  &[horizontally-aligned~="right"]
+    align-items flex-end
+  
+  &[vertically-distributed~="around"]
+    justify-content space-around
+  &[vertically-distributed~="between"]
+    justify-content space-between
+  &[vertically-distributed~="equal"]
+    > *
+      width initial
