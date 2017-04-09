@@ -1,0 +1,24 @@
+{
+  "name": "ragrid",
+  "version": "1.0.0",
+  "description": "Intrinsic and rag flexbox attribute based grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argyleink/ragrid.git"
+  },
+  "keywords": [
+    "flexbox",
+    "css",
+    "stylus"
+  ],
+  "author": "Adam Argyle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/argyleink/ragrid/issues"
+  },
+  "homepage": "https://github.com/argyleink/ragrid#readme"
+}
