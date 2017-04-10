@@ -1,9 +1,29 @@
-article
+article.example-navs
   header
     h2 Navbar
-    small Bread and butter layout right here
-  nav(grid="columns" horizontally-distributed='between' vertically-aligned='center')
-    a(href="#") Home
-    a(href="#") News
-    a(href="#") About
-    a(href="#") Contact
+    small Bread and butter layout right here, bust out all styles easy
+  nav(grid="columns" horizontally-distributed='equal' vertically-aligned='center')
+    a Home
+    a News
+    a About
+    a Contact
+  nav(grid="columns" horizontally-aligned='center' vertically-aligned='center')
+    a Home
+    a News
+    a About
+    a Contact
+  nav(grid="columns" horizontally-aligned='left' vertically-aligned='center')
+    a Home
+    a News
+    a About
+    a Contact
+  nav(grid="columns" horizontally-aligned='right' vertically-aligned='center')
+    a Home
+    a News
+    a About
+    a Contact
+  nav(grid="rows" horizontally-aligned='center' vertically-aligned='center')
+    a Home
+    a News
+    a About
+    a Contact

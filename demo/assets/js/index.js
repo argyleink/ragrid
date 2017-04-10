@@ -1,1 +1,1 @@
-console.log('you can use ES6 here : )')
+import RagridDemo from './ragrid-demo.element'

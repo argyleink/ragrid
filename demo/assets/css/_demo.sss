@@ -1,0 +1,27 @@
+ragrid-demo
+  display: block
+  position: relative
+  
+  & nav
+    width: 230px
+    & button
+      opacity: 0.3
+    
+  & .controls
+    position: absolute
+    width: 230px
+    top: 60px
+    left: 0
+    
+    &:nth-child(2)
+      top: 112px
+    &:nth-child(3)
+      top: 163px
+      width: 70px
+      
+  & article 
+    flex: 3
+    margin-left: 2rem
+    
+    & > section
+      min-height: 50vh

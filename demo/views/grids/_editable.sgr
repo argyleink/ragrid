@@ -3,4 +3,4 @@ article
     h2 Notorious Vertical Center
     small grid horizontally-aligned='center' vertically-aligned='center'
   section.demo_perfect_center(grid horizontally-aligned='center' vertically-aligned='center')
-    h4(contenteditable) Change my text value, watch me stay centered!
+    p(contenteditable) Change my text value, watch me stay centered! 
