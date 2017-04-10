@@ -1,0 +1,186 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  margin: 2.5vw
+}
+  
+  @media (min-width:768px) {
+  
+  body {
+    margin: 15vw
+  }
+}
+
+header {
+  margin-top: 15vw;
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+  margin-left: -1.2em;
+  padding-left: 16px;
+  padding-left: 1rem;
+  border-left: 2px solid hsl(200, 40%, 93%)
+}
+
+blockquote {
+  margin: 0 0 15vw;
+  padding: 32px;
+  padding: 2rem;
+  border: 2px solid hsl(0, 0%, 95%)
+}
+
+blockquote {}
+
+blockquote p:first-child {
+  margin-top: 0
+}
+
+h1 {
+  font-size: 64px;
+  font-size: 4rem;
+  text-align: center;
+  letter-spacing: -0.05em;
+  margin-top: 15vw
+}
+
+h1:after {
+  content: " ";
+  display: block;
+  height: 1px;
+  width: 32px;
+  width: 2rem;
+  background: black;
+  margin: 0 auto
+}
+
+h2 {
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: capitalize;
+  
+  ~ small {
+    color: hsl(0, 0%, 70%)
+  }
+}
+
+body,h2 {
+  font-weight: lighter
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 0
+}
+
+/* DEMO STYLES */
+
+article {}
+
+article > section[grid] {
+  outline: 1px solid hsl(0, 0%, 95%);
+  counter-reset: section
+}
+
+article > section[grid] > *:nth-child(1n) {
+  background: hsl(200, 40%, 80%)
+}
+
+article > section[grid] > *:nth-child(2n) {
+  background: hsl(200, 40%, 85%)
+}
+
+.light_text_shadow {
+  text-shadow: 0 1px 1px hsl(200, 40%, 65%)
+}
+
+/* this class demonstrates how the parent can take control over sizing, as well as let it be determined by the child itself */
+
+.demo_box, .demo_row_box {
+  @extend .light_text_shadow;
+  height: 100px;
+  width: 100px;
+  color: white;
+  position: relative
+  
+  /* auto box count */
+}
+
+.demo_box:after, .demo_row_box:after {
+  counter-increment: section;
+  content: counter(section);
+  font-size: 32px;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%
+}
+
+.demo_box span, .demo_row_box span {
+  text-align: center;
+  display: inline-block;
+  margin: 16px;
+  margin: 1rem
+}
+
+.demo_box:nth-child(2n) > span, .demo_row_box:nth-child(2n) > span {
+  margin-top: 48px;
+  margin-top: 3rem
+}
+
+.tall {
+  height: 500px
+}
+
+.hide_numbers {}
+
+.hide_numbers .demo_box:after {
+  display: none
+}
+
+.demo_box_offset_1 {
+  height: 50px
+}
+
+.demo_box_offset_2 {
+  height: 200px
+}
+
+.demo_row_box_offset_1 {
+  width: 50px
+}
+
+.demo_row_box_offset_2 {
+  width: 200px
+}
+
+.demo_box_skinny_1 {
+  width: 50px
+}
+
+.demo_perfect_center {
+  @extend .light_text_shadow;
+  height: 200px;
+  padding: 16px 32px;
+  padding: 1rem 2rem;
+  color: white;
+  background-color: hsl(200, 40%, 80%)
+}
+
+nav > a {
+  color: hsl(200, 40%, 80%);
+  text-decoration: none
+}
+
+nav > a:hover {
+  color: hsl(200, 40%, 60%)
+}
