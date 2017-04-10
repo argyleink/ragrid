@@ -1,0 +1,9 @@
+article
+  header
+    h2 Align Center
+    small No stupid math offsets to get this beauty
+  section.tall(grid='rows' horizontally-aligned='center' vertically-distributed='around')
+    .demo_row_box.demo_row_box_offset_1
+    .demo_row_box
+    .demo_row_box.demo_row_box_offset_2
+    .demo_row_box

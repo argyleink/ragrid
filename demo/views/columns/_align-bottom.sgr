@@ -1,0 +1,9 @@
+article
+  header
+    h2 Alignment
+    small Top, right, bottom, left, center; it's all available
+  section(grid='columns' horizontally-distributed='between' vertically-aligned='bottom')
+    .demo_box.demo_box_offset_1
+    .demo_box
+    .demo_box.demo_box_offset_2
+    .demo_box

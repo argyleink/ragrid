@@ -1,0 +1,9 @@
+article
+  header
+    h2 Baseline
+    small Hey what, this isn't in the align panel
+  section(grid='columns' horizontally-distributed='between' vertically-aligned='baseline' class="hide_numbers")
+    .demo_box.demo_box_offset_1: span Mind
+    .demo_box: span Is
+    .demo_box.demo_box_offset_2: span Blown
+    .demo_box: span !
