@@ -1,1 +1,271 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><meta name="description" content><meta name="author" content="argyleink"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Title of Your Site</title><link rel="stylesheet" href="css/index.css"><link rel="stylesheet" href="css/ragrid.css"></head><body role="document"><main role="main" id="index"><blockquote><p grid horizontally-aligned="center"><img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"></p><p>^ Look familiar? Or is it here ^? Whatever, you may know these tools, and if you do, this grid is for you. The same labels you click on to align your designs, now are the attributes and values you can use to make your web designs. </p><b>Find the matching icon in an example below!</b><p>Forget “col-xs-6”, “IbBox W(1/3)” or whatever crazy crap is in fashion, let’s use words folks. Get some readable layouts going on up in here. Alignment and distribution are way more powerful than offsets, gutters, and specific column sizes.</p><p><b>Important, resize your browser to really see the way this grid behaves, and how different it is by default.</b></p></blockquote><h1>Columns</h1><article><header><h2>Out of the box</h2><small>Self sized and aligned top left, rag by default</small></header><section grid="columns"><div class="demo_box demo_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Distribution</h2><small>Perfect spacing amongst variable sized children, forget about gutters</small></header><section grid="columns" horizontally-distributed="around"><div class="demo_box demo_box_offset_1"></div><div class="demo_box demo_box_skinny_1"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Alignment</h2><small>Top, right, bottom, left, center; it’s all available</small></header><section grid="columns" horizontally-distributed="between" vertically-aligned="bottom"><div class="demo_box demo_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Baseline</h2><small>Hey what, this isn’t in the align panel</small></header><section grid="columns" horizontally-distributed="between" vertically-aligned="baseline" class="hide_numbers"><div class="demo_box demo_box_offset_1"><span>Mind</span></div><div class="demo_box"><span>Is</span></div><div class="demo_box demo_box_offset_2"><span>Blown</span></div><div class="demo_box"><span>!</span></div></section></article><article><header><h2>Order</h2><small>Reverse the children</small></header><section grid="columns" vertically-aligned="center" horizontally-aligned="right" order="reverse"><div class="demo_box demo_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Combo</h2><small>Distributed edge to edge, vertically aligned center, and reversed! </small></header><section grid="columns" horizontally-distributed="between" vertically-aligned="center" order="reverse"><div class="demo_box demo_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Equal Width</h2><small>Resize to watch these stretch to fit the space, so cool</small></header><section grid="columns" horizontally-distributed="equal"><div class="demo_box demo_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Equal Height</h2><small>Glorious</small></header><section class="demo_box_offset_2" grid="columns" vertically-distributed="equal" style="height:200px;"><div class="demo_box demo_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_box_offset_2"></div><div class="demo_box"></div></section></article><h1>Rows</h1><article><header><h2>Switch to rows anytime</h2><small>Rag by default like columns</small></header><section grid="rows"><div class="demo_row_box demo_row_box_offset_1"></div><div class="demo_row_box"></div><div class="demo_row_box demo_row_box_offset_2"></div><div class="demo_row_box"></div></section></article><article><header><h2>Align Center</h2><small>No stupid math offsets to get this beauty</small></header><section class="tall" grid="rows" horizontally-aligned="center" vertically-distributed="around"><div class="demo_row_box demo_row_box_offset_1"></div><div class="demo_row_box"></div><div class="demo_row_box demo_row_box_offset_2"></div><div class="demo_row_box"></div></section></article><article><header><h2>Align Right</h2><small>Still no stupid offsets, simple alignment</small></header><section class="tall" grid="rows" horizontally-aligned="right" vertically-distributed="between"><div class="demo_row_box demo_row_box_offset_1"></div><div class="demo_row_box"></div><div class="demo_row_box demo_row_box_offset_2"></div><div class="demo_row_box"></div></section></article><article><header><h2>Combo</h2><small>Distributed edge to edge, vertically aligned center, and reversed! </small></header><section class="tall" grid="rows" horizontally-distributed="between" vertically-aligned="center" order="reverse"><div class="demo_box demo_row_box_offset_1"></div><div class="demo_box"></div><div class="demo_box demo_row_box_offset_2"></div><div class="demo_box"></div></section></article><article><header><h2>Full Width</h2><small>Classic</small></header><section grid="rows" vertically-distributed="equal"><div class="demo_row_box demo_row_box_offset_1"></div><div class="demo_row_box"></div><div class="demo_row_box demo_row_box_offset_2"></div><div class="demo_row_box"></div></section></article><h1>Grids</h1><article><header><h2>Intrinsic Sizing</h2><small>Children, by default in this grid, have their own size</small></header><section grid="columns"><div class="demo_box"></div><div class="demo_box demo_row_box_offset_1"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box demo_row_box_offset_2"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div></section></article><article><header><h2>Extrinsic Sizing (1/5)</h2><small>But the children can be told a size, similar to most grids</small></header><section grid="columns" column-size="1/5"><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div><div class="demo_box"></div></section></article><h1>Extra</h1><article><header><h2>Notorious Vertical Center</h2><small>grid horizontally-aligned=‘center’ vertically-aligned=‘center’</small></header><section class="demo_perfect_center" grid horizontally-aligned="center" vertically-aligned="center"><h4 contenteditable>Change my text value, watch me stay centered!</h4></section></article><article><header><h2>Navbar</h2><small>Bread and butter layout right here</small></header><nav grid="columns" horizontally-distributed="between" vertically-aligned="center"><a href="#">Home</a><a href="#">News</a><a href="#">About</a><a href="#">Contact</a></nav></article></main><script src="js/main.js" defer></script></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="description" content>
+    <meta name="author" content="argyleink">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ragrid // Demo & Docs</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/ragrid.css">
+  </head>
+  <body role="document"></body>
+  <ragrid-demo></ragrid-demo>
+  <main role="main" id="index">
+    <h1>Columns</h1>
+    <article>
+      <header>
+        <h2>Out of the box</h2>
+        <small>Self sized and aligned top left, rag by default</small>
+      </header>
+      <section grid="columns">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Distribution</h2>
+        <small>Perfect spacing amongst variable sized children, forget about gutters</small>
+      </header>
+      <section grid="columns" horizontally-distributed="around">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box demo_box_skinny_1"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Alignment</h2>
+        <small>Top, right, bottom, left, center; it’s all available</small>
+      </header>
+      <section grid="columns" horizontally-distributed="between" vertically-aligned="bottom">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Baseline</h2>
+        <small>Hey what, this isn’t in the align panel</small>
+      </header>
+      <section grid="columns" horizontally-distributed="between" vertically-aligned="baseline" class="hide_numbers">
+        <div class="demo_box demo_box_offset_1">
+          <span>Mind</span>
+        </div>
+        <div class="demo_box">
+          <span>Is</span>
+        </div>
+        <div class="demo_box demo_box_offset_2">
+          <span>Blown</span>
+        </div>
+        <div class="demo_box">
+          <span>!</span>
+        </div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Order</h2>
+        <small>Reverse the children</small>
+      </header>
+      <section grid="columns" vertically-aligned="center" horizontally-aligned="right" order="reverse">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Combo</h2>
+        <small>Distributed edge to edge, vertically aligned center, and reversed! </small>
+      </header>
+      <section grid="columns" horizontally-distributed="between" vertically-aligned="center" order="reverse">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Equal Width</h2>
+        <small>Resize to watch these stretch to fit the space, so cool</small>
+      </header>
+      <section grid="columns" horizontally-distributed="equal">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Equal Height</h2>
+        <small>Glorious</small>
+      </header>
+      <section class="demo_box_offset_2" grid="columns" vertically-distributed="equal" style="height:200px;">
+        <div class="demo_box demo_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <h1>Rows</h1>
+    <article>
+      <header>
+        <h2>Switch to rows anytime</h2>
+        <small>Rag by default like columns</small>
+      </header>
+      <section grid="rows">
+        <div class="demo_row_box demo_row_box_offset_1"></div>
+        <div class="demo_row_box"></div>
+        <div class="demo_row_box demo_row_box_offset_2"></div>
+        <div class="demo_row_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Align Center</h2>
+        <small>No stupid math offsets to get this beauty</small>
+      </header>
+      <section class="tall" grid="rows" horizontally-aligned="center" vertically-distributed="around">
+        <div class="demo_row_box demo_row_box_offset_1"></div>
+        <div class="demo_row_box"></div>
+        <div class="demo_row_box demo_row_box_offset_2"></div>
+        <div class="demo_row_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Align Right</h2>
+        <small>Still no stupid offsets, simple alignment</small>
+      </header>
+      <section class="tall" grid="rows" horizontally-aligned="right" vertically-distributed="between">
+        <div class="demo_row_box demo_row_box_offset_1"></div>
+        <div class="demo_row_box"></div>
+        <div class="demo_row_box demo_row_box_offset_2"></div>
+        <div class="demo_row_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Combo</h2>
+        <small>Distributed edge to edge, vertically aligned center, and reversed! </small>
+      </header>
+      <section class="tall" grid="rows" horizontally-distributed="between" vertically-aligned="center" order="reverse">
+        <div class="demo_box demo_row_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_row_box_offset_2"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Full Width</h2>
+        <small>Classic</small>
+      </header>
+      <section grid="rows" vertically-distributed="equal">
+        <div class="demo_row_box demo_row_box_offset_1"></div>
+        <div class="demo_row_box"></div>
+        <div class="demo_row_box demo_row_box_offset_2"></div>
+        <div class="demo_row_box"></div>
+      </section>
+    </article>
+    <h1>Grids</h1>
+    <article>
+      <header>
+        <h2>Intrinsic Sizing</h2>
+        <small>Children, by default in this grid, have their own size</small>
+      </header>
+      <section grid="columns">
+        <div class="demo_box"></div>
+        <div class="demo_box demo_row_box_offset_1"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box demo_row_box_offset_2"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <article>
+      <header>
+        <h2>Extrinsic Sizing (1/5)</h2>
+        <small>But the children can be told a size, similar to most grids</small>
+      </header>
+      <section grid="columns" column-size="1/5">
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+        <div class="demo_box"></div>
+      </section>
+    </article>
+    <h1>Extra</h1>
+    <article>
+      <header>
+        <h2>Notorious Vertical Center</h2>
+        <small>grid horizontally-aligned=‘center’ vertically-aligned=‘center’</small>
+      </header>
+      <section class="demo_perfect_center" grid horizontally-aligned="center" vertically-aligned="center">
+        <p contenteditable>Change my text value, watch me stay centered! </p>
+      </section>
+    </article>
+    <article class="example-navs">
+      <header>
+        <h2>Navbar</h2>
+        <small>Bread and butter layout right here, bust out all styles easy</small>
+      </header>
+      <nav grid="columns" horizontally-distributed="equal" vertically-aligned="center">
+        <a>Home</a>
+        <a>News</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      <nav grid="columns" horizontally-aligned="center" vertically-aligned="center">
+        <a>Home</a>
+        <a>News</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      <nav grid="columns" horizontally-aligned="left" vertically-aligned="center">
+        <a>Home</a>
+        <a>News</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      <nav grid="columns" horizontally-aligned="right" vertically-aligned="center">
+        <a>Home</a>
+        <a>News</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      <nav grid="rows" horizontally-aligned="center" vertically-aligned="center">
+        <a>Home</a>
+        <a>News</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+    </article>
+  </main>
+  <script src="js/main.js" defer></script>
+</html>
