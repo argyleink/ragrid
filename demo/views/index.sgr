@@ -1,30 +1,29 @@
 extends(src='layout.sgr')
   block(name='content')
-    blockquote
-      p(grid horizontally-aligned="center")
-        img(src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG")
+    ragrid-demo
 
-    h1 Columns
-    include(src='columns/_default.sgr')
-    include(src='columns/_distribute-around.sgr')
-    include(src='columns/_align-bottom.sgr')
-    include(src='columns/_align-baseline.sgr')
-    include(src='columns/_reverse.sgr')
-    include(src='columns/_distribute-reverse-center.sgr')
-    include(src='columns/_equal-width.sgr')
-    include(src='columns/_equal-height.sgr')
-    
-    h1 Rows
-    include(src='rows/_default.sgr')
-    include(src='rows/_align-center.sgr')
-    include(src='rows/_align-right.sgr')
-    include(src='rows/_between-reversed-center.jade')
-    include(src='rows/_full-width.sgr')
-    
-    h1 Grids
-    include(src='grids/_default.sgr')
-    include(src='grids/_extrinsic.sgr')
-    
-    h1 Extra
-    include(src='grids/_editable.sgr')
-    include(src='grids/_nav.sgr')
+    main(role='main' id='{{ pageId }}')
+      h1 Columns
+      include(src='columns/_default.sgr')
+      include(src='columns/_distribute-around.sgr')
+      include(src='columns/_align-bottom.sgr')
+      include(src='columns/_align-baseline.sgr')
+      include(src='columns/_reverse.sgr')
+      include(src='columns/_distribute-reverse-center.sgr')
+      include(src='columns/_equal-width.sgr')
+      include(src='columns/_equal-height.sgr')
+      
+      h1 Rows
+      include(src='rows/_default.sgr')
+      include(src='rows/_align-center.sgr')
+      include(src='rows/_align-right.sgr')
+      include(src='rows/_between-reversed-center.jade')
+      include(src='rows/_full-width.sgr')
+      
+      h1 Grids
+      include(src='grids/_default.sgr')
+      include(src='grids/_extrinsic.sgr')
+      
+      h1 Extra
+      include(src='grids/_editable.sgr')
+      include(src='grids/_nav.sgr')

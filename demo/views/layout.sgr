@@ -9,15 +9,14 @@ html
       meta(name="viewport" content="width=device-width, initial-scale=1")
 
     block(name='title')
-      title Title of Your Site
+      title Ragrid // Demo & Docs
 
     block(name='stylesheets')
       link(rel='stylesheet' href='css/index.css')
       link(rel='stylesheet' href='css/ragrid.css')
 
-  body(role='document')
-    main(role='main' id='{{ pageId }}')
-      block(name='content')
+  body(role='document')  
+    block(name='content')
 
     block(name='javascript')
       script(src='js/main.js' defer)
