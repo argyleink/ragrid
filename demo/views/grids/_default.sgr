@@ -1,0 +1,17 @@
+article
+  header
+    h2 Intrinsic Sizing
+    small Children, by default in this grid, have their own size
+  section(grid='columns')
+    .demo_box
+    .demo_box.demo_row_box_offset_1
+    .demo_box
+    .demo_box
+    .demo_box
+    .demo_box.demo_row_box_offset_2
+    .demo_box
+    .demo_box
+    .demo_box
+    .demo_box
+    .demo_box
+    .demo_box

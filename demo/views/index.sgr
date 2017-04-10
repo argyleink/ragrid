@@ -3,198 +3,28 @@ extends(src='layout.sgr')
     blockquote
       p(grid horizontally-aligned="center")
         img(src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG")
-      p ^ Look familiar? Or is it here ^? Whatever, you may know these tools, and if you do, this grid is for you. The same labels you click on to align your designs, now are the attributes and values you can use to make your web designs. 
-        b Find the matching icon in an example below!
-      p Forget "col-xs-6", "IbBox W(1/3)" or whatever crazy crap is in fashion, let's use words folks. Get some readable layouts going on up in here. Alignment and distribution are way more powerful than offsets, gutters, and specific column sizes.
-      p: b Important, resize your browser to really see the way this grid behaves, and how different it is by default.
 
     h1 Columns
-
-    article
-      header
-        h2 Out of the box
-        small Self sized and aligned top left, rag by default
-      section(grid='columns')
-        .demo_box.demo_box_offset_1
-        .demo_box
-        .demo_box.demo_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Distribution
-        small Perfect spacing amongst variable sized children, forget about gutters
-      section(grid='columns' horizontally-distributed='around')
-        .demo_box.demo_box_offset_1
-        .demo_box.demo_box_skinny_1
-        .demo_box.demo_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Alignment
-        small Top, right, bottom, left, center; it's all available
-      section(grid='columns' horizontally-distributed='between' vertically-aligned='bottom')
-        .demo_box.demo_box_offset_1
-        .demo_box
-        .demo_box.demo_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Baseline
-        small Hey what, this isn't in the align panel
-      section(grid='columns' horizontally-distributed='between' vertically-aligned='baseline' class="hide_numbers")
-        .demo_box.demo_box_offset_1: span Mind
-        .demo_box: span Is
-        .demo_box.demo_box_offset_2: span Blown
-        .demo_box: span !
-
-    article
-      header
-        h2 Order
-        small Reverse the children
-      section(grid='columns' vertically-aligned='center' horizontally-aligned='right' order='reverse')
-        .demo_box.demo_box_offset_1
-        .demo_box
-        .demo_box.demo_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Combo
-        small Distributed edge to edge, vertically aligned center, and reversed! 
-      section(grid='columns' horizontally-distributed='between' vertically-aligned='center' order='reverse')
-        .demo_box.demo_box_offset_1
-        .demo_box
-        .demo_box.demo_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Equal Width
-        small Resize to watch these stretch to fit the space, so cool
-      section(grid='columns' horizontally-distributed='equal')
-        .demo_box.demo_box_offset_1
-        .demo_box
-        .demo_box.demo_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Equal Height
-        small Glorious
-      section.demo_box_offset_2(grid='columns' vertically-distributed='equal' style='height:200px;')
-        .demo_box.demo_box_offset_1
-        .demo_box
-        .demo_box.demo_box_offset_2
-        .demo_box
-
+    include(src='columns/_default.sgr')
+    include(src='columns/_distribute-around.sgr')
+    include(src='columns/_align-bottom.sgr')
+    include(src='columns/_align-baseline.sgr')
+    include(src='columns/_reverse.sgr')
+    include(src='columns/_distribute-reverse-center.sgr')
+    include(src='columns/_equal-width.sgr')
+    include(src='columns/_equal-height.sgr')
+    
     h1 Rows
-
-    article
-      header
-        h2 Switch to rows anytime
-        small Rag by default like columns
-      section(grid='rows')
-        .demo_row_box.demo_row_box_offset_1
-        .demo_row_box
-        .demo_row_box.demo_row_box_offset_2
-        .demo_row_box
-
-    article
-      header
-        h2 Align Center
-        small No stupid math offsets to get this beauty
-      section.tall(grid='rows' horizontally-aligned='center' vertically-distributed='around')
-        .demo_row_box.demo_row_box_offset_1
-        .demo_row_box
-        .demo_row_box.demo_row_box_offset_2
-        .demo_row_box
-
-    article
-      header
-        h2 Align Right
-        small Still no stupid offsets, simple alignment
-      section.tall(grid='rows' horizontally-aligned='right' vertically-distributed='between')
-        .demo_row_box.demo_row_box_offset_1
-        .demo_row_box
-        .demo_row_box.demo_row_box_offset_2
-        .demo_row_box
-        
-    article
-      header
-        h2 Combo
-        small Distributed edge to edge, vertically aligned center, and reversed! 
-      section.tall(grid='rows' horizontally-distributed='between' vertically-aligned='center' order='reverse')
-        .demo_box.demo_row_box_offset_1
-        .demo_box
-        .demo_box.demo_row_box_offset_2
-        .demo_box
-
-    article
-      header
-        h2 Full Width
-        small Classic
-      section(grid='rows' vertically-distributed='equal')
-        .demo_row_box.demo_row_box_offset_1
-        .demo_row_box
-        .demo_row_box.demo_row_box_offset_2
-        .demo_row_box
-
+    include(src='rows/_default.sgr')
+    include(src='rows/_align-center.sgr')
+    include(src='rows/_align-right.sgr')
+    include(src='rows/_between-reversed-center.jade')
+    include(src='rows/_full-width.sgr')
+    
     h1 Grids
-
-    article
-      header
-        h2 Intrinsic Sizing
-        small Children, by default in this grid, have their own size
-      section(grid='columns')
-        .demo_box
-        .demo_box.demo_row_box_offset_1
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box.demo_row_box_offset_2
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-
-    article
-      header
-        h2 Extrinsic Sizing (1/5)
-        small But the children can be told a size, similar to most grids
-      section(grid='columns' column-size='1/5')
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-        .demo_box
-
+    include(src='grids/_default.sgr')
+    include(src='grids/_extrinsic.sgr')
+    
     h1 Extra
-
-    article
-      header
-        h2 Notorious Vertical Center
-        small grid horizontally-aligned='center' vertically-aligned='center'
-      section.demo_perfect_center(grid horizontally-aligned='center' vertically-aligned='center')
-        h4(contenteditable) Change my text value, watch me stay centered!
-
-    article
-      header
-        h2 Navbar
-        small Bread and butter layout right here
-      nav(grid="columns" horizontally-distributed='between' vertically-aligned='center')
-        a(href="#") Home
-        a(href="#") News
-        a(href="#") About
-        a(href="#") Contact
+    include(src='grids/_editable.sgr')
+    include(src='grids/_nav.sgr')

@@ -1,0 +1,9 @@
+article
+  header
+    h2 Order
+    small Reverse the children
+  section(grid='columns' vertically-aligned='center' horizontally-aligned='right' order='reverse')
+    .demo_box.demo_box_offset_1
+    .demo_box
+    .demo_box.demo_box_offset_2
+    .demo_box

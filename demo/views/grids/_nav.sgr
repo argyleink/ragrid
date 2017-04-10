@@ -1,0 +1,9 @@
+article
+  header
+    h2 Navbar
+    small Bread and butter layout right here
+  nav(grid="columns" horizontally-distributed='between' vertically-aligned='center')
+    a(href="#") Home
+    a(href="#") News
+    a(href="#") About
+    a(href="#") Contact
