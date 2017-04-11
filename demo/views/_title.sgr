@@ -1,0 +1,10 @@
+.title(grid='rows' horizontally-aligned='center' vertically-aligned='center')
+  h1 RAGRID
+  ol
+    li(title='Like this numbered list') Columns and rows rag by default
+    li Use via recognizable attributes
+    li Optionally 12-column
+
+.guide
+  h2 Demo
+  h3 ⇓
