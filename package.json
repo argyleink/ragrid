@@ -1,8 +1,8 @@
 {
   "name": "ragrid",
-  "version": "1.0.0",
-  "description": "Intrinsic and rag flexbox attribute based grid",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "Intrinsic first flexbox grid",
+  "readmeFilename": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ragrid": "stylus ragrid.styl -o ragrid.css",
