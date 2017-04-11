@@ -1,4 +1,5 @@
 body
+  margin: 0
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
 
 main
@@ -26,14 +27,13 @@ blockquote
 h1
   font-size: 4rem
   text-align: center
-  letter-spacing: -0.05em
   margin-top: 15vw
   
   &:after
     content:  " "
     display: block
     height: 1px
-    width: 2rem
+    width: 2em
     background: black
     margin: 0 auto
     
@@ -44,8 +44,11 @@ h2
   
   ~ small
     color: hsl(0,0%,70%)
+
+h3
+  margin: 0
   
-body,h2
+body,h2,h3
   font-weight: lighter
   
 p

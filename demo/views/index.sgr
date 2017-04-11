@@ -1,5 +1,7 @@
 extends(src='layout.sgr')
   block(name='content')
+    include(src='_title.sgr')
+
     ragrid-demo
 
     main(role='main' id='{{ pageId }}')

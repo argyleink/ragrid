@@ -1,0 +1,34 @@
+.title
+  height: 94vh
+  
+  & small
+    width: 100%
+    color: hsl(0,0%,70%)
+  
+  & h1
+    margin: 0
+    position: relative
+
+    &:after
+      margin-left: 0.06em
+      position: absolute
+      bottom: 0.1em
+    &:before
+      content: "Intrinsic First"
+      font-size: 0.7rem
+      color: hsl(0,0%,50%)
+      font-weight: lighter
+      position: absolute
+      top: 0
+      left: 0.2em
+      
+  & ol
+    margin-top: 0.5rem
+     
+    & > li
+      line-height: 1.5em
+      
+.guide
+  height: 6vh
+  min-height: 30px
+  text-align: center
