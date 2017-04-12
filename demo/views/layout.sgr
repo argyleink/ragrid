@@ -9,7 +9,7 @@ html
       meta(name='viewport' content='width=device-width, initial-scale=1')
 
     block(name='title')
-      title Ragrid // Demo & Docs
+      title RAGrid: Demo & Docs
 
     block(name='stylesheets')
       link(rel='stylesheet' href='css/index.css')
