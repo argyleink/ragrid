@@ -1,0 +1,13 @@
+article.full-page
+  h1(name="why") Why?
+  p(md) The way we talk about the grid in our teams, should be the same way we code the grid. Forget `xs-col-5` or `IbBox W(1/3)` or whatever is in fashion, **let's use the same speak we do with people, with our machines**. 
+
+  p(md) This grid is a bit different though, in that it seeks to allow contents to decide their own size by default. Most grids are explicit about widths, and the content must block level fill the space. With RAGrid, you distribute and align the items which manage their own size. 
+
+  h5 tldr;
+  ul
+    li Columns and rows are intrinsicly sized by default, so they rag like typography (RAGrid.. get it..)
+    li It follows the Adobe/Sketch align tool jargon
+    li Layout is done via attributes instead of classes
+    li Offers a 12-column system, even though it's trying to inspire you out of extrinsic grid sizing
+    li It's small, you could/should copy paste it into your project
