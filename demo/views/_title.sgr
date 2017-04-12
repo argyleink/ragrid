@@ -2,9 +2,6 @@
   h1 RAGrid
   ol
     li(title='Like this numbered list') Columns and rows rag by default
-    li Use via recognizable attributes
+    li Uses recognizable attributes
     li Optionally 12-column
-
-.guide
-  h2 Demo
-  h3 ⇓
+    li Flows like text
