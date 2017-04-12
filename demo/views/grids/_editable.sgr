@@ -1,6 +1,7 @@
 article
   header
     h2 Notorious Vertical Center
-    small grid horizontally-aligned='center' vertically-aligned='center'
+    small Reads like a book
+    code &lt;section grid horizontally-aligned="center" vertically-aligned="center"&gt;…&lt;/section&gt;
   section.demo_perfect_center(grid horizontally-aligned='center' vertically-aligned='center')
     p(contenteditable) Change my text value, watch me stay centered! 

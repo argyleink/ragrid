@@ -2,6 +2,7 @@ article
   header
     h2 Full Width
     small Classic
+    code &lt;section grid="rows" vertically-distributed="equal"&gt;…&lt;/section&gt;
   section(grid='rows' vertically-distributed='equal')
     .demo_row_box.demo_row_box_offset_1
     .demo_row_box

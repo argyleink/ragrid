@@ -2,13 +2,13 @@ body
   margin: 0
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
 
-main
+main, ragrid-demo
   margin: 2.5vw
   
   @media (min-width:768px)
     margin: 15vw
   @media (min-width:1024px)
-    max-width: 768px
+    max-width: 60rem
     margin: 15vw auto
 
 header
@@ -16,7 +16,12 @@ header
   margin-bottom: 2rem
   margin-left: -1.2em
   padding-left: 1rem
+  padding-bottom: 0.5rem
   border-left: 2px solid hsl(200,40%,93%)
+  
+  & small
+    display: block
+    margin-bottom: 0.5rem
 
 blockquote
   margin: 0 0 15vw
@@ -71,3 +76,9 @@ p
 ul > li
   margin: 0.5rem 0
   line-height: 1.5
+  
+code
+  background: hsl(0,0%,95%)
+  border-radius: 0.25em
+  padding: 0.25em 0.5em
+  box-shadow: 0 1px 1px hsl(0,0%,60%)

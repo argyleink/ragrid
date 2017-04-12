@@ -2,6 +2,7 @@ article
   header
     h2 Align Right
     small Still no stupid offsets, simple alignment
+    code &lt;section grid="rows" horizontally-aligned="right"&gt;…&lt;/section&gt;
   section.tall(grid='rows' horizontally-aligned='right' vertically-distributed='between')
     .demo_row_box.demo_row_box_offset_1
     .demo_row_box

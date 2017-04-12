@@ -2,6 +2,7 @@ article
   header
     h2 Switch to rows anytime
     small Rag by default like columns
+    code &lt;section grid="rows"&gt;…&lt;/section&gt;
   section(grid='rows')
     .demo_row_box.demo_row_box_offset_1
     .demo_row_box
