@@ -1,23 +1,26 @@
 ragrid-demo
   display: block
   position: relative
+  padding: 0 1rem
   
   & nav
     width: 230px
-    & button
-      opacity: 0.1
     
   & .controls
     position: absolute
     width: 230px
     top: 60px
-    left: 0
+    left: 1rem
     
-    &:nth-child(2)
+    &.distribute-objects
       top: 112px
-    &:nth-child(3)
+    &.distribute-spacing
       top: 163px
       width: 70px
+      
+    & button
+      opacity: 0.1
+      min-height: 1.5em
       
   & article 
     flex: 3
@@ -25,3 +28,10 @@ ragrid-demo
     
     & > section
       min-height: 50vh
+      
+  & pre
+    font-size: 0.8rem
+    overflow-x: auto
+    padding: 0.5rem 0.5rem 0
+    background: hsl(0,0%,90%)
+    color: hsl(0,0%,50%)
