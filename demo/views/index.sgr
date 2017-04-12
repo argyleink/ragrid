@@ -4,32 +4,8 @@ extends(src='layout.sgr')
     include(src='_demo.sgr')
 
     main(role='main' id='{{ pageId }}')
-      article.full-page
-        h1(name="why") Why?
-        p(md) The way we talk about the grid in our teams, should be the same way we code the grid. Forget `xs-col-5` or `IbBox W(1/3)` or whatever is in fashion, **let's use the same speak we do with people, with our machines**. 
-
-        p(md) This grid is a bit different though, in that it seeks to allow contents to decide their own size by default. Most grids are explicit about widths, and the content must block level fill the space. With RAGrid, you distribute and align the items which manage their own size. 
-
-        h5 tldr;
-        ul
-          li Columns and rows are intrinsicly sized by default, so they rag like typography (RAGrid.. get it..)
-          li It follows the Adobe/Sketch align tool jargon
-          li Layout is done via attributes instead of classes
-          li Offers a 12-column system, even though it's trying to inspire you out of extrinsic grid sizing
-          li It's small, you could/should copy paste it into your project
-
-      article.full-page
-        h1(name="docs") Docs
-        p(md) IMHO, I'd say copy and paste the [CSS](https://github.com/argyleink/ragrid/blob/master/ragrid.css) into your project, good for you to know, and it's very digestable. **BUT**, I did [publish it to NPM](https://www.npmjs.com/package/ragrid) so you can manage it like you do your other CSS dependencies: 
-        p(md) `npm i ragrid -D` || `yarn add ragrid`  
-
-        p(md) Getting started is easy, just add one attribute to your container `grid`, that's it! Instead of writing lengthy docs, please find the RAGrid API by inspecting the code in the examples below or use the demo.  
-        
-        p(md) **It's very simple.** So much so, that it might be good to quicky spell out the things you *won't* find in RAGrid:
-        ul
-          li No included media queries
-          li No polyfills or fallbacks if flexbox isn't supported
-          li No learning curve or flex of complexity
+      include(src='_why.sgr')
+      include(src='_docs.sgr')
 
       h1(name="columns") Columns
       include(src='columns/_default.sgr')
