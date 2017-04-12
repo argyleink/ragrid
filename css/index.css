@@ -37,6 +37,21 @@ blockquote p:first-child {
   margin-top: 0
 }
 
+a {
+  color: hsl(140, 50%, 50%);
+  text-decoration: none
+}
+
+a:hover {
+  color: hsl(140, 50%, 45%);
+  text-decoration: underline
+}
+
+a > h1, a:hover > h1 {
+  color: black;
+  text-decoration: none
+}
+
 h1 {
   font-size: 64px;
   font-size: 4rem;
@@ -54,8 +69,6 @@ h1:after {
 }
 
 h2 {
-  margin-bottom: 0;
-  margin-top: 0;
   text-transform: capitalize;
   
   ~ small {
@@ -63,11 +76,11 @@ h2 {
   }
 }
 
-h3 {
+h2,h3,h4,h5 {
   margin: 0
 }
 
-body,h2,h3 {
+body,h2,h3,h4,h5 {
   font-weight: lighter
 }
 
@@ -76,12 +89,56 @@ p {
   margin-bottom: 0
 }
 
-/* DEMO STYLES */
+ul > li {
+  margin: 8px 0;
+  margin: 0.5rem 0;
+  line-height: 1.5
+}
+
+.title {
+  height: 90vh
+}
+
+.title small {
+  width: 100%;
+  color: hsl(0, 0%, 70%)
+}
+
+.title h1 {
+  margin: 0;
+  position: relative
+}
+
+.title h1:after {
+  margin-left: 0.06em;
+  position: absolute;
+  bottom: 0.1em
+}
+
+.title h1:before {
+  content: "Intrinsic First";
+  font-size: 11.2px;
+  font-size: 0.7rem;
+  color: hsl(0, 0%, 50%);
+  font-weight: lighter;
+  position: absolute;
+  top: 0;
+  left: 0.2em
+}
+
+.title ol {
+  margin-top: 8px;
+  margin-top: 0.5rem
+}
+
+.title ol > li {
+  line-height: 1.5em
+}
 
 article {}
 
 article > section[grid] {
-  outline: 1px solid hsl(0, 0%, 95%);
+  outline: 1px solid hsl(0, 0%, 90%);
   counter-reset: section
 }
 
@@ -91,6 +148,10 @@ article > section[grid] > *:nth-child(1n) {
 
 article > section[grid] > *:nth-child(2n) {
   background: hsl(200, 40%, 85%)
+}
+
+.full-page {
+  min-height: 75vh
 }
 
 .light_text_shadow {
@@ -201,58 +262,12 @@ article > section[grid] > *:nth-child(2n) {
   background: hsl(200, 40%, 90%)
 }
 
-.title {
-  height: 94vh
-}
-
-.title small {
-  width: 100%;
-  color: hsl(0, 0%, 70%)
-}
-
-.title h1 {
-  margin: 0;
-  position: relative
-}
-
-.title h1:after {
-  margin-left: 0.06em;
-  position: absolute;
-  bottom: 0.1em
-}
-
-.title h1:before {
-  content: "Intrinsic First";
-  font-size: 11.2px;
-  font-size: 0.7rem;
-  color: hsl(0, 0%, 50%);
-  font-weight: lighter;
-  position: absolute;
-  top: 0;
-  left: 0.2em
-}
-
-.title ol {
-  margin-top: 8px;
-  margin-top: 0.5rem
-}
-
-.title ol > li {
-  line-height: 1.5em
-}
-
-.guide {
-  height: 6vh;
-  min-height: 30px;
-  text-align: center;
-  margin-bottom: 10vh
-}
-
 ragrid-demo {
   display: block;
   position: relative;
   padding: 0 16px;
-  padding: 0 1rem
+  padding: 0 1rem;
+  margin-bottom: 30vh
 }
 
 ragrid-demo nav {
@@ -263,8 +278,7 @@ ragrid-demo .controls {
   position: absolute;
   width: 230px;
   top: 60px;
-  left: 16px;
-  left: 1rem
+  left: 0
 }
 
 ragrid-demo .controls.distribute-objects {
@@ -289,16 +303,55 @@ ragrid-demo article {
   margin-left: 2rem
 }
 
-ragrid-demo article > section {
-  min-height: 50vh
+ragrid-demo article > section {}
+
+ragrid-demo article > section > div:nth-child(1) {
+  height: 50px
+}
+
+ragrid-demo article > section > div:nth-child(3) {
+  height: 200px
+}
+
+ragrid-demo article > section > div:nth-child(5) {
+  width: 200px;
+  height: 200px
+}
+
+ragrid-demo article > section > div:nth-child(7) {
+  height: 50px
 }
 
 ragrid-demo pre {
   font-size: 12.8px;
   font-size: 0.8rem;
   overflow-x: auto;
-  padding: 8px 8px 0;
-  padding: 0.5rem 0.5rem 0;
+  overflow-y: hidden;
+  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 4px;
+  margin-top: 0.25rem;
   background: hsl(0, 0%, 90%);
-  color: hsl(0, 0%, 50%)
+  color: hsl(0, 0%, 50%);
+  height: 80px
+}
+
+ragrid-demo .feature {
+  margin-top: 16px;
+  margin-top: 1rem;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem
+}
+
+.align-panel {
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 1rem
+}
+
+.guide {
+  height: 6vh;
+  min-height: 30px;
+  text-align: center;
+  margin-bottom: 10vh
 }

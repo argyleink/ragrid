@@ -6087,11 +6087,14 @@ var RagridDemo = function (_HTMLElement) {
     key: 'createdCallback',
     value: function createdCallback() {
       this.initial_state = {
-        'direction': 'columns',
         'horizontally-aligned': 'left',
-        'horizontally-distributed': 'none',
         'vertically-aligned': 'top',
-        'vertically-distributed': 'none'
+        'horizontally-distributed': 'none',
+        'vertically-distributed': 'none',
+        direction: 'columns',
+        order: 'forward',
+        height: '50vh',
+        boxes: 4
       };
 
       this.panel_controls = [{
@@ -6105,14 +6108,39 @@ var RagridDemo = function (_HTMLElement) {
         buttons: [{ attr: 'direction', val: 'rows', title: 'Rows' }, { attr: 'direction', val: 'columns', title: 'Columns' }]
       }];
 
-      // new RxStore store from number seed, followed by object of reducers
+      this.controls = [{ attr: 'order',
+        val: 'forward',
+        title: 'Forward the order',
+        text: 'Forward'
+      }, { attr: 'order',
+        val: 'reverse',
+        title: 'Reverse the order',
+        text: 'Reverse'
+      }, { attr: 'vertically-aligned',
+        val: 'baseline',
+        title: 'Align to the box contents text baseline',
+        text: 'Baseline Align'
+      }];
+
+      // Create a store for our demo state
       this.Ragrid = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__rxstore__["a" /* RxStore */])(this.initial_state, {
         update: function update(patch) {
           return function (state) {
             return Object.assign({}, state, patch);
           };
+        },
+        add_box: function add_box() {
+          return function (state) {
+            return Object.assign({}, state, { boxes: state.boxes + 1 });
+          };
+        },
+        set_height: function set_height(height) {
+          return function (state) {
+            return Object.assign({}, state, { height: height });
+          };
         }
       });
+
       // opt into nice state change logs
       __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__rxstore__["b" /* Logger */])('RagridDemo', this.Ragrid.store$);
     }
@@ -6136,10 +6164,22 @@ var RagridDemo = function (_HTMLElement) {
         return _this2.Ragrid.actions.update(patch);
       });
 
+      this.add$ = __WEBPACK_IMPORTED_MODULE_0_rxjs__["Observable"].fromEvent(this, 'click').filter(function (e) {
+        return e.target.hasAttribute('ragrid-add');
+      }).subscribe(function (e) {
+        return _this2.Ragrid.actions.add_box();
+      });
+
+      this.height$ = __WEBPACK_IMPORTED_MODULE_0_rxjs__["Observable"].fromEvent(this, 'click').filter(function (e) {
+        return e.target.hasAttribute('ragrid-auto-height');
+      }).subscribe(function (e) {
+        return _this2.Ragrid.actions.set_height();
+      });
+
       this.reset$ = __WEBPACK_IMPORTED_MODULE_0_rxjs__["Observable"].fromEvent(this, 'click').filter(function (e) {
         return e.target.hasAttribute('ragrid-reset');
       }).subscribe(function (e) {
-        return _this2.reset();
+        return _this2.Ragrid.actions.update(_this2.initial_state);
       });
     }
   }, {
@@ -6147,6 +6187,7 @@ var RagridDemo = function (_HTMLElement) {
     value: function detachedCallback() {
       this.grid$.unsubscribe();
       this.align_panel$.unsubscribe();
+      this.add$.unsubscribe();
       this.reset$.unsubscribe();
     }
   }, {
@@ -6159,12 +6200,11 @@ var RagridDemo = function (_HTMLElement) {
         return controls + '\n              <div class="controls ' + control.section + '" grid="rows" vertically-distributed="equal">\n                <div grid="columns" horizontally-distributed="equal">\n                  ' + control.buttons.reduce(function (items, item) {
           return items + '<button data-attr-key="' + item.attr + '" data-attr-val="' + item.val + '" title="' + item.title + '"></button>';
         }, '') + '\n                </div>\n              </div>\n              ';
-      }, '') + '\n            <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>\n          </div>\n          <pre>\n# RAGrid HTML attributes\ngrid="' + grid.direction + '" \nhorizontally-aligned="' + grid['horizontally-aligned'] + '" \nvertically-aligned="' + grid['vertically-aligned'] + '"\nhorizontally-distributed="' + grid['horizontally-distributed'] + '" \nvertically-distributed="' + grid['vertically-distributed'] + '"\n          </pre>\n          <div>\n            <h2>Special Powers</h2>\n            <button>Add A Box</button>\n            <button>Reverse Order</button>\n            <button>Baseline Align</button>\n            <button ragrid-reset>Reset</button>\n          </div>\n        </nav>\n        <article><section \n          grid="' + grid.direction + '" \n          horizontally-aligned="' + grid['horizontally-aligned'] + '" \n          vertically-aligned="' + grid['vertically-aligned'] + '"\n          horizontally-distributed="' + grid['horizontally-distributed'] + '" \n          vertically-distributed="' + grid['vertically-distributed'] + '"\n        >\n          <div class="demo_box demo_box_offset_1"></div>\n          <div class="demo_box"></div>\n          <div class="demo_box demo_box_offset_2"></div>\n          <div class="demo_box"></div>\n        </section></article>\n      </div>\n    ';
-    }
-  }, {
-    key: 'reset',
-    value: function reset() {
-      this.Ragrid.actions.update(this.initial_state);
+      }, '') + '\n            <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>\n          </div>\n          <h4>RAGrid attributes:</h4>\n          <pre>\ngrid="' + grid.direction + '" \nhorizontally-aligned="' + grid['horizontally-aligned'] + '" \nvertically-aligned="' + grid['vertically-aligned'] + '"\nhorizontally-distributed="' + grid['horizontally-distributed'] + '" \nvertically-distributed="' + grid['vertically-distributed'] + '"\norder="' + grid['order'] + '"\n          </pre>\n          <div class="feature">\n            <h5>Align Panel can\'t do this:</h5>\n            ' + this.controls.reduce(function (items, item) {
+        return items + '\n               <button data-attr-key="' + item.attr + '" data-attr-val="' + item.val + '" title="' + item.title + '">' + item.text + '</button>';
+      }, '') + '\n          </div>\n          <div class="feature">\n            <h5>Demo Controls:</h5>\n            <button ragrid-reset>Reset</button>\n            <button ragrid-add>Add Box</button>\n            <button ragrid-auto-height>Auto Height Container</button>\n          </div>\n        </nav>\n        <article><section \n          style="min-height:' + grid.height + ';"\n          grid="' + grid.direction + '" \n          horizontally-aligned="' + grid['horizontally-aligned'] + '" \n          vertically-aligned="' + grid['vertically-aligned'] + '"\n          horizontally-distributed="' + grid['horizontally-distributed'] + '" \n          vertically-distributed="' + grid['vertically-distributed'] + '"\n          order="' + grid['order'] + '"\n        >\n          ' + Array.apply(null, { length: grid.boxes }).reduce(function (boxes, box) {
+        return boxes + '<div class="demo_box"></div>';
+      }, '') + '\n        </section></article>\n      </div>\n    ';
     }
   }]);
 

@@ -6,7 +6,7 @@
     <meta name="description" content>
     <meta name="author" content="argyleink">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RAGrid: Demo & Docs</title>
+    <title>RAGrid</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/ragrid.css">
   </head>
@@ -18,23 +18,59 @@
     <h1>RAGrid</h1>
     <ol>
       <li title="Like this numbered list">Columns and rows rag by default</li>
-      <li>Use via recognizable attributes</li>
+      <li>Uses recognizable attributes</li>
       <li>Optionally 12-column</li>
+      <li>Flows like text</li>
     </ol>
   </div>
   <div class="guide">
     <h2>Demo</h2>
     <h3>⇓</h3>
+    <p>Click through the buttons in the align panel</p>
   </div>
   <ragrid-demo></ragrid-demo>
   <main role="main" id="index">
-    <h1>Columns</h1>
+    <article class="full-page">
+      <h1 name="why">Why?</h1>
+      <p>
+        <p>The way we talk about the grid in our teams, should be the same way we code the grid. Forget <code>xs-col-5</code> or <code>IbBox W(1/3)</code> or whatever is in fashion, <strong>let’s use the same speak we do with people, with our machines</strong>.</p>
+      </p>
+      <p>
+        <p>This grid is a bit different though, in that it seeks to allow contents to decide their own size by default. Most grids are explicit about widths, and the content must block level fill the space. With RAGrid, you distribute and align the items which manage their own size.</p>
+      </p>
+      <h5>tldr;</h5>
+      <ul>
+        <li>Columns and rows are intrinsicly sized by default, so they rag like typography (RAGrid.. get it..)</li>
+        <li>It follows the Adobe/Sketch align tool jargon</li>
+        <li>Layout is done via attributes instead of classes</li>
+        <li>Offers a 12-column system, even though it’s trying to inspire you out of extrinsic grid sizing</li>
+        <li>It’s small, you could/should copy paste it into your project</li>
+      </ul>
+    </article>
+    <article class="full-page">
+      <h1 name="docs">Docs</h1>
+      <p>
+        <p>Instead of writing lengthy docs, please find the RAGrid API/answers by inspecting the code in the examples below. Getting RAGrid into your project? IMHO, I’d say copy and paste the <a href="https://github.com/argyleink/ragrid/blob/master/ragrid.css">CSS</a> into your project, good for you to know, and it’s very digestable. <strong>BUT</strong>, I did <a href="https://www.npmjs.com/package/ragrid">publish it to NPM</a> so you can manage it like you do your other CSS dependencies:</p>
+      </p>
+      <p>
+        <p><code>npm i ragrid -D</code> || <code>yarn add ragrid</code></p>
+      </p>
+      <p>
+        <p><strong>It’s very simple.</strong> So much so, that it might be good to quicky spell out the things you <em>won’t</em> find in RAGrid:</p>
+      </p>
+      <ul>
+        <li>No media queries</li>
+        <li>No polyfills or fallbacks if flexbox isn’t supported</li>
+        <li>No learning curve or flex of complexity</li>
+      </ul>
+    </article>
+    <h1 name="columns">Columns</h1>
     <article>
       <header>
         <h2>Out of the box</h2>
-        <small>Self sized and aligned top left, rag by default</small>
+        <small>Self sized, aligned top left, & rag by default</small>
       </header>
-      <section grid="columns">
+      <section grid>
         <div class="demo_box demo_box_offset_1"></div>
         <div class="demo_box"></div>
         <div class="demo_box demo_box_offset_2"></div>
@@ -133,7 +169,7 @@
         <div class="demo_box"></div>
       </section>
     </article>
-    <h1>Rows</h1>
+    <h1 name="rows">Rows</h1>
     <article>
       <header>
         <h2>Switch to rows anytime</h2>
@@ -194,7 +230,7 @@
         <div class="demo_row_box"></div>
       </section>
     </article>
-    <h1>Grids</h1>
+    <h1 name="grids">Grids</h1>
     <article>
       <header>
         <h2>Intrinsic Sizing</h2>
@@ -235,7 +271,7 @@
         <div class="demo_box"></div>
       </section>
     </article>
-    <h1>Extra</h1>
+    <h1 name="extra">Extra</h1>
     <article>
       <header>
         <h2>Notorious Vertical Center</h2>
