@@ -4,11 +4,14 @@ import { RxStore, Logger } from './rxstore'
 export default class RagridDemo extends HTMLElement {
   createdCallback() {
     this.initial_state = {
-      'direction':                  'columns'
-    , 'horizontally-aligned':       'left'
-    , 'horizontally-distributed':   'none'
+      'horizontally-aligned':       'left'
     , 'vertically-aligned':         'top'
+    , 'horizontally-distributed':   'none'
     , 'vertically-distributed':     'none'
+    , direction:                    'columns'
+    , order:                        'forward'
+    , height:                       '50vh'
+    , boxes:                        4
     }
 
     this.panel_controls = [
@@ -43,10 +46,31 @@ export default class RagridDemo extends HTMLElement {
       }
     ]
 
-    // new RxStore store from number seed, followed by object of reducers
+    this.controls = [
+      { attr:   'order'
+      , val:    'forward'
+      , title:  'Forward the order'
+      , text:   'Forward'
+      }
+    , { attr:   'order'
+      , val:    'reverse'
+      , title:  'Reverse the order'
+      , text:   'Reverse'
+      }
+    , { attr:   'vertically-aligned'
+      , val:    'baseline'
+      , title:  'Align to the box contents text baseline'
+      , text:   'Baseline Align'
+      }
+    ]
+
+    // Create a store for our demo state
     this.Ragrid = RxStore(this.initial_state, {
       update: patch => state => Object.assign({}, state, patch)
+    , add_box: () => state => Object.assign({}, state, {boxes: state.boxes + 1})
+    , set_height: height => state => Object.assign({}, state, {height})
     })
+
     // opt into nice state change logs
     Logger('RagridDemo', this.Ragrid.store$)
   }
@@ -64,14 +88,23 @@ export default class RagridDemo extends HTMLElement {
       })
       .subscribe(patch => this.Ragrid.actions.update(patch))
 
+    this.add$ = Observable.fromEvent(this, 'click')
+      .filter(e => e.target.hasAttribute('ragrid-add'))
+      .subscribe(e => this.Ragrid.actions.add_box())
+
+    this.height$ = Observable.fromEvent(this, 'click')
+      .filter(e => e.target.hasAttribute('ragrid-auto-height'))
+      .subscribe(e => this.Ragrid.actions.set_height())
+
     this.reset$ = Observable.fromEvent(this, 'click')
       .filter(e => e.target.hasAttribute('ragrid-reset'))
-      .subscribe(e => this.reset())
+      .subscribe(e => this.Ragrid.actions.update(this.initial_state))
   }
 
   detachedCallback() {
     this.grid$.unsubscribe()
     this.align_panel$.unsubscribe()
+    this.add$.unsubscribe()
     this.reset$.unsubscribe()
   }
 
@@ -95,40 +128,44 @@ export default class RagridDemo extends HTMLElement {
             , '')}
             <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>
           </div>
+          <h4>RAGrid attributes:</h4>
           <pre>
-# RAGrid HTML attributes
 grid="${grid.direction}" 
 horizontally-aligned="${grid['horizontally-aligned']}" 
 vertically-aligned="${grid['vertically-aligned']}"
 horizontally-distributed="${grid['horizontally-distributed']}" 
 vertically-distributed="${grid['vertically-distributed']}"
+order="${grid['order']}"
           </pre>
-          <div>
-            <h2>Special Powers</h2>
-            <button>Add A Box</button>
-            <button>Reverse Order</button>
-            <button>Baseline Align</button>
+          <div class="feature">
+            <h5>Align Panel can't do this:</h5>
+            ${this.controls.reduce((items, item) => 
+              `${items}
+               <button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}">${item.text}</button>`
+            , '')}
+          </div>
+          <div class="feature">
+            <h5>Demo Controls:</h5>
             <button ragrid-reset>Reset</button>
+            <button ragrid-add>Add Box</button>
+            <button ragrid-auto-height>Auto Height Container</button>
           </div>
         </nav>
         <article><section 
+          style="min-height:${grid.height};"
           grid="${grid.direction}" 
           horizontally-aligned="${grid['horizontally-aligned']}" 
           vertically-aligned="${grid['vertically-aligned']}"
           horizontally-distributed="${grid['horizontally-distributed']}" 
           vertically-distributed="${grid['vertically-distributed']}"
+          order="${grid['order']}"
         >
-          <div class="demo_box demo_box_offset_1"></div>
-          <div class="demo_box"></div>
-          <div class="demo_box demo_box_offset_2"></div>
-          <div class="demo_box"></div>
+          ${Array.apply(null, {length:grid.boxes}).reduce((boxes, box) => 
+            `${boxes}<div class="demo_box"></div>`
+          , '')}
         </section></article>
       </div>
     `
-  }
-
-  reset() {
-    this.Ragrid.actions.update(this.initial_state)
   }
 }
 
