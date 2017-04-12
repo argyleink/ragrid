@@ -33,6 +33,6 @@
     "precommit": "npm run lint -s",
     "pretest": "npm run lint -s",
     "test": "NODE_ENV=test ava",
-    "demo": "spike clean && spike compile && cp -r public/* ../"
+    "demo": "spike clean && spike compile -e production && cp -r public/* ../"
   }
 }
