@@ -2,6 +2,7 @@ article
   header
     h2 Extrinsic Sizing (1/5)
     small But the children can be told a size, similar to most grids
+    code &lt;section grid="columns" column-size="1/5"&gt;…&lt;/section&gt;
   section(grid='columns' column-size='1/5')
     .demo_box
     .demo_box
