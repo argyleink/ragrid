@@ -8,8 +8,10 @@
   // https://developer.mozilla.org/en-US/docs/Web/CSS/contain
   contain layout
   
-  &[order~="reverse"]
+  &[order~="reverse"][grid~="row"]
     flex-direction row-reverse
+  &[order~="reverse"][grid~="column"]
+    flex-direction column-reverse
   
   /*
   ALIGN
