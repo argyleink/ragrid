@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
 }
 
@@ -40,7 +41,6 @@ h1 {
   font-size: 64px;
   font-size: 4rem;
   text-align: center;
-  letter-spacing: -0.05em;
   margin-top: 15vw
 }
 
@@ -48,8 +48,7 @@ h1:after {
   content: " ";
   display: block;
   height: 1px;
-  width: 32px;
-  width: 2rem;
+  width: 2em;
   background: black;
   margin: 0 auto
 }
@@ -64,7 +63,11 @@ h2 {
   }
 }
 
-body,h2 {
+h3 {
+  margin: 0
+}
+
+body,h2,h3 {
   font-weight: lighter
 }
 
@@ -198,33 +201,84 @@ article > section[grid] > *:nth-child(2n) {
   background: hsl(200, 40%, 90%)
 }
 
+.title {
+  height: 94vh
+}
+
+.title small {
+  width: 100%;
+  color: hsl(0, 0%, 70%)
+}
+
+.title h1 {
+  margin: 0;
+  position: relative
+}
+
+.title h1:after {
+  margin-left: 0.06em;
+  position: absolute;
+  bottom: 0.1em
+}
+
+.title h1:before {
+  content: "Intrinsic First";
+  font-size: 11.2px;
+  font-size: 0.7rem;
+  color: hsl(0, 0%, 50%);
+  font-weight: lighter;
+  position: absolute;
+  top: 0;
+  left: 0.2em
+}
+
+.title ol {
+  margin-top: 8px;
+  margin-top: 0.5rem
+}
+
+.title ol > li {
+  line-height: 1.5em
+}
+
+.guide {
+  height: 6vh;
+  min-height: 30px;
+  text-align: center;
+  margin-bottom: 10vh
+}
+
 ragrid-demo {
   display: block;
-  position: relative
+  position: relative;
+  padding: 0 16px;
+  padding: 0 1rem
 }
 
 ragrid-demo nav {
   width: 230px
 }
 
-ragrid-demo nav button {
-  opacity: 0.3
-}
-
 ragrid-demo .controls {
   position: absolute;
   width: 230px;
   top: 60px;
-  left: 0
+  left: 16px;
+  left: 1rem
 }
 
-ragrid-demo .controls:nth-child(2) {
+ragrid-demo .controls.distribute-objects {
   top: 112px
 }
 
-ragrid-demo .controls:nth-child(3) {
+ragrid-demo .controls.distribute-spacing {
   top: 163px;
   width: 70px
+}
+
+ragrid-demo .controls button {
+  opacity: 0.1;
+  min-height: 1.5em
 }
 
 ragrid-demo article {
@@ -237,4 +291,14 @@ ragrid-demo article {
 
 ragrid-demo article > section {
   min-height: 50vh
+}
+
+ragrid-demo pre {
+  font-size: 12.8px;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  padding: 8px 8px 0;
+  padding: 0.5rem 0.5rem 0;
+  background: hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 50%)
 }
