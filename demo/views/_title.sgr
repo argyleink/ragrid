@@ -1,7 +1,9 @@
 .title(grid='rows' horizontally-aligned='center' vertically-aligned='center')
   h1 RAGrid
-  ol
-    li(title='Like this numbered list') Columns and rows rag by default
-    li Uses recognizable attributes
-    li Optionally 12-column
-    li Flows like text
+  ol(type='I')
+    li(title='Like this numbered list') Flows and rags like text
+    li Works like auto-layout by aligning and distributing
+    li Uses recognizable attributes instead of classes
+    li Capable of 12-column layouts
+    li Infinite nesting
+    li ‹2kb minified
