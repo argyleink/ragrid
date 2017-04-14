@@ -8,10 +8,8 @@
   // https://developer.mozilla.org/en-US/docs/Web/CSS/contain
   contain layout
   
-  &[order~="reverse"][grid~="row"]
+  &[order~="reverse"]
     flex-direction row-reverse
-  &[order~="reverse"][grid~="column"]
-    flex-direction column-reverse
   
   /*
   ALIGN
@@ -57,7 +55,6 @@
     - Instead of col-xs-12 or whatever
     - Specify size on the parent
   */
-  
   &[column-size~="1/2"] > *
     flex-basis (100% / 2)
   &[column-size~="1/3"] > *
