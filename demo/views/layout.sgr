@@ -17,7 +17,7 @@ html
     block(name='stylesheets')
       link(rel='stylesheet' href='css/index.css')
       link(rel='stylesheet' href='css/ragrid.css')
-      link(rel='stylesheet' href='http://prismjs.com/themes/prism.css')
+      link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css')
 
   body(role='document')  
     a(href='https://github.com/argyleink/ragrid' target='_blank')
