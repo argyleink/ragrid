@@ -2,7 +2,7 @@ article
   header
     h2 Distribution
     small Perfect spacing amongst variable sized children, forget about gutters
-    code &lt;section grid="columns" horizontally-distributed="around"&gt;…&lt;/section&gt;
+    code(class='language-markup') &lt;section grid="columns" horizontally-distributed="around"&gt;…&lt;/section&gt;
   section(grid='columns' horizontally-distributed='around')
     .demo_box.demo_box_offset_1
     .demo_box.demo_box_skinny_1

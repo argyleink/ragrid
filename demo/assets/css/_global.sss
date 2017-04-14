@@ -12,12 +12,13 @@ main, ragrid-demo
 header
   margin-top: 15vw
   margin-bottom: 2rem
-  margin-left: -1.2em
+  margin-left: -1em
   padding-left: 1rem
   padding-bottom: 0.5rem
-  border-left: 2px solid hsl(200,40%,93%)
+  border-left: 1px solid hsl(200,40%,70%)
   
   & small
+    color: hsl(200,40%,50%)
     display: block
     margin-bottom: 0.5rem
 
@@ -74,9 +75,12 @@ p
 ul > li
   margin: 0.5rem 0
   line-height: 1.5
+
+ul, ol  
+  & p
+    margin-top: 0
   
 code
-  background: hsl(0,0%,95%)
-  border-radius: 0.25em
+  font-size: 0.8rem
   padding: 0.25em 0.5em
   box-shadow: 0 1px 1px hsl(0,0%,60%)

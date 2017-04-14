@@ -2,7 +2,7 @@ article
   header
     h2 Align Center
     small No stupid math offsets to get this beauty
-    code &lt;section grid="rows" horizontally-aligned="center"&gt;…&lt;/section&gt;
+    code(class='language-markup') &lt;section grid="rows" horizontally-aligned="center"&gt;…&lt;/section&gt;
   section.tall(grid='rows' horizontally-aligned='center' vertically-distributed='around')
     .demo_row_box.demo_row_box_offset_1
     .demo_row_box

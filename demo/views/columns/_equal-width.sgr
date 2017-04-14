@@ -2,7 +2,7 @@ article
   header
     h2 Equal Width
     small Resize to watch these stretch to fit the space, so cool
-    code &lt;section grid horizontally-distributed="equal"&gt;…&lt;/section&gt;
+    code(class='language-markup') &lt;section grid="columns" horizontally-distributed="equal"&gt;…&lt;/section&gt;
   section(grid='columns' horizontally-distributed='equal')
     .demo_box.demo_box_offset_1
     .demo_box

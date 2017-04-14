@@ -2,7 +2,7 @@ article
   header
     h2 Intrinsic Sizing
     small Children, by default in this grid, have their own size
-    code &lt;section grid="columns"&gt;…&lt;/section&gt;
+    code(class='language-markup') &lt;section grid="columns"&gt;…&lt;/section&gt;
   section(grid='columns')
     .demo_box
     .demo_box.demo_row_box_offset_1

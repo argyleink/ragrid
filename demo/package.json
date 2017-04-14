@@ -10,10 +10,12 @@
   "dependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.1.8",
+    "prismjs": "^1.6.0",
     "reshape-standard": "^1.0.0",
     "rxjs": "^5.3.0",
     "spike-css-standards": "^1.0.0",
     "spike-page-id": "^1.0.0",
+    "tippy.js": "^0.3.6",
     "webpack": "^2.2.1"
   },
   "devDependencies": {

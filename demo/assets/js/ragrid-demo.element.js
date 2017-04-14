@@ -1,16 +1,19 @@
 import { Observable }      from 'rxjs'
 import { RxStore, Logger } from './rxstore'
 
+import * as Prism from 'prismjs'
+
 export default class RagridDemo extends HTMLElement {
   createdCallback() {
     this.initial_state = {
-      'horizontally-aligned':       'left'
-    , 'vertically-aligned':         'top'
-    , 'horizontally-distributed':   'none'
-    , 'vertically-distributed':     'none'
+      'horizontally-aligned':       ''
+    , 'vertically-aligned':         ''
+    , 'horizontally-distributed':   ''
+    , 'vertically-distributed':     ''
     , direction:                    'columns'
-    , order:                        'forward'
+    , order:                        ''
     , height:                       '50vh'
+    , width:                        '3'
     , boxes:                        4
     }
 
@@ -69,6 +72,7 @@ export default class RagridDemo extends HTMLElement {
       update: patch => state => Object.assign({}, state, patch)
     , add_box: () => state => Object.assign({}, state, {boxes: state.boxes + 1})
     , set_height: height => state => Object.assign({}, state, {height})
+    , set_width: width => state => Object.assign({}, state, {width})
     })
 
     // opt into nice state change logs
@@ -96,6 +100,10 @@ export default class RagridDemo extends HTMLElement {
       .filter(e => e.target.hasAttribute('ragrid-auto-height'))
       .subscribe(e => this.Ragrid.actions.set_height())
 
+    this.width$ = Observable.fromEvent(this, 'click')
+      .filter(e => e.target.hasAttribute('ragrid-auto-width'))
+      .subscribe(e => this.Ragrid.actions.set_width())
+
     this.reset$ = Observable.fromEvent(this, 'click')
       .filter(e => e.target.hasAttribute('ragrid-reset'))
       .subscribe(e => this.Ragrid.actions.update(this.initial_state))
@@ -112,6 +120,16 @@ export default class RagridDemo extends HTMLElement {
   
   render(grid) {
     this.innerHTML = `
+      <code class="language-markup">
+        &lt;div
+          grid="${grid.direction}"
+          ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
+          ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
+          ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
+          ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
+          ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
+        &gt;…&lt;/div&gt;
+      </code>
       <div grid="columns">
         <nav>
           <div class="align-panel">
@@ -128,15 +146,6 @@ export default class RagridDemo extends HTMLElement {
             , '')}
             <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>
           </div>
-          <h4>RAGrid attributes:</h4>
-          <pre>
-grid="${grid.direction}" 
-horizontally-aligned="${grid['horizontally-aligned']}" 
-vertically-aligned="${grid['vertically-aligned']}"
-horizontally-distributed="${grid['horizontally-distributed']}" 
-vertically-distributed="${grid['vertically-distributed']}"
-order="${grid['order']}"
-          </pre>
           <div class="feature">
             <h5>Align Panel can't do this:</h5>
             ${this.controls.reduce((items, item) => 
@@ -149,9 +158,10 @@ order="${grid['order']}"
             <button ragrid-reset>Reset</button>
             <button ragrid-add>Add Box</button>
             <button ragrid-auto-height>Auto Height Container</button>
+            <button ragrid-auto-width>Auto Width Container</button>
           </div>
         </nav>
-        <article><section 
+        <article ${grid.width ? 'style="flex:'+grid.width+';"' : ''}><section 
           style="min-height:${grid.height};"
           grid="${grid.direction}" 
           horizontally-aligned="${grid['horizontally-aligned']}" 
@@ -166,6 +176,7 @@ order="${grid['order']}"
         </section></article>
       </div>
     `
+    Prism.highlightElement(this.querySelector('code'))
   }
 }
 

@@ -1,8 +1,8 @@
 article
   header
     h2 Out of the box
-    small Self sized, aligned top left, & rag by default
-    code &lt;section grid&gt;…&lt;/section&gt;
+    small Self sized, aligned top left, & rag
+    code(class='language-markup') &lt;section grid&gt;…&lt;/section&gt;
   section(grid)
     .demo_box.demo_box_offset_1
     .demo_box

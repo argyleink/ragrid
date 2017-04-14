@@ -1,9 +1,8 @@
 article.full-page
   h1(name="docs") Docs
-  p(md) IMHO, I'd say copy and paste the [CSS](https://github.com/argyleink/ragrid/blob/master/ragrid.css) into your project, good for you to know, and it's very digestable. **BUT**, I did [publish it to NPM](https://www.npmjs.com/package/ragrid) so you can manage it like you do your other CSS dependencies: 
-  p(md) `npm i ragrid -D` or `yarn add ragrid` or `bower i ragrid -D`
+  p(md) `npm i ragrid -D` `yarn add ragrid` `bower i ragrid -D`
 
-  p(md) Getting started is easy, just add one attribute to your container `grid`, that's it! Instead of writing lengthy docs, please find the RAGrid API by inspecting the code in the examples below or use the demo.  
+  p(md) Getting started is easy, just add one attribute to your container `grid`. Instead of writing lengthy docs, please find the RAGrid API by inspecting the code in the examples below or use the demo.  
   
   p(md) **It's very simple.** So much so, that it might be good to quicky spell out the things you *won't* find in RAGrid:
   ul

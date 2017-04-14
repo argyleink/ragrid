@@ -2,7 +2,7 @@ article
   header
     h2 Baseline
     small Hey what, this isn't in the align panel
-    code &lt;section grid="columns" vertically-aligned="baseline"&gt;…&lt;/section&gt;
+    code(class='language-markup') &lt;section grid vertically-aligned="baseline"&gt;…&lt;/section&gt;
   section(grid='columns' horizontally-distributed='between' vertically-aligned='baseline' class="hide_numbers")
     .demo_box.demo_box_offset_1: span Mind
     .demo_box: span Is

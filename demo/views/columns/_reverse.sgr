@@ -2,7 +2,7 @@ article
   header
     h2 Order
     small Reverse the children
-    code &lt;section grid="columns" order="reverse"&gt;…&lt;/section&gt;
+    code(class='language-markup') &lt;section grid order="reverse"&gt;…&lt;/section&gt;
   section(grid='columns' vertically-aligned='center' horizontally-aligned='right' order='reverse')
     .demo_box.demo_box_offset_1
     .demo_box

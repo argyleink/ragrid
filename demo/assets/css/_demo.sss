@@ -5,6 +5,9 @@ ragrid-demo
   margin-bottom: 30vh
   margin-top: 2rem
   
+  & > [grid]
+    margin-top: 1rem
+  
   & nav
     width: 230px
     
@@ -21,11 +24,11 @@ ragrid-demo
       width: 70px
       
     & button
+      cursor: pointer
       opacity: 0.1
       min-height: 1.5em
       
   & article 
-    flex: 3
     margin-left: 2rem
     
     & > section
@@ -37,17 +40,14 @@ ragrid-demo
         width: 200px
         height: 200px
       & > div:nth-child(7)
-        height: 50px
-      
-  & pre
-    font-size: 0.8rem
-    overflow-x: auto
-    overflow-y: hidden
-    padding: 0.25rem 0.5rem
-    margin-top: 0.25rem
-    background: hsl(200,40%,93%)
-    color: hsl(200,40%,40%)
-    height: 80px
+        height: 250px
+      & > div:nth-child(9)
+        height: 150px
+        width: 250px
+      & > div:nth-child(11)
+        width: 50px
+      & > div:nth-child(13)
+        height: 100px
     
   & .feature
     margin-top: 1rem

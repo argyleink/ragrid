@@ -2,8 +2,7 @@
   h1 RAGrid
   ol(type='I')
     li(title='Like this numbered list') Flows and rags like text
-    li Works like auto-layout by aligning and distributing
+    li(md) Works like **auto-layout** by **aligning** and **distributing**
     li Uses recognizable attributes instead of classes
     li Capable of 12-column layouts
-    li Infinite nesting
-    li ‹2kb minified
+    li Tiny

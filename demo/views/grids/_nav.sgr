@@ -1,7 +1,8 @@
 article.example-navs
   header
     h2 Navbar
-    small Bread and butter layout right here, bust out all styles easy
+    small Achieve the layout and hover effect you want easily
+    code(class='language-markup') &lt;nav grid="columns" horizontally-distributed="equal"&gt;…&lt;/nav&gt;
   nav(grid="columns" horizontally-distributed='equal' vertically-aligned='center')
     a Home
     a News
