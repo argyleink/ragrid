@@ -14,9 +14,9 @@ Why another grid? So the way we talk about the grid, is the same way we code the
 
 
 ```shell
-npm install ragrid --save-dev
-# or
+npm i ragrid -D
 yarn add ragrid
+bower i ragrid
 ```
 
 
