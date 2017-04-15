@@ -1,7 +1,7 @@
 article
   header
     h2 Intrinsic Sizing
-    small Children, by default in this grid, have their own size
+    small Horizontal masonry type effect from letting children self size
     code(class='language-markup') &lt;section grid="columns"&gt;…&lt;/section&gt;
   section(grid='columns')
     .demo_box

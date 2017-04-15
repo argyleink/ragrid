@@ -2,21 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   contain: layout;
-/*
-  ALIGN
-    - Horizontal: Left, Center, Right
-    - Vertical: Top, Center, Bottom
-  */
-/*
-  DISTRIBUTE
-    - Horizontal: Left, Center, Right
-    - Vertical: Top, Center, Bottom
-  */
-/*
-  SIZE
-    - Instead of col-xs-12 or whatever
-    - Specify size on the parent
-  */
 }
 [grid][order~="reverse"] {
   flex-direction: row-reverse;
@@ -120,4 +105,8 @@
 }
 [grid~="rows"][vertically-distributed~="equal"] > * {
   width: initial;
+}
+[grid~="masonry"] {
+  flex-flow: column wrap;
+  height: 20rem;
 }

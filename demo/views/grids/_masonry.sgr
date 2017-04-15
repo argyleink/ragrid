@@ -1,0 +1,18 @@
+article
+  header
+    h2 Masonry
+    small Change the height on this container to change the masonry fit. Also notice the count and flow.
+    code(class='language-markup') &lt;section grid="masonry" vertically-aligned="center"&gt;…&lt;/section&gt;
+  section(grid='masonry' vertically-aligned='center')
+    .demo_box
+    .demo_box.demo_box_offset_1
+    .demo_box
+    .demo_box
+    .demo_box.demo_box_offset_1
+    .demo_box.demo_box_offset_2
+    .demo_box
+    .demo_box.demo_box_offset_1
+    .demo_box
+    .demo_box.demo_box_offset_2
+    .demo_box
+    .demo_box.demo_box_offset_1

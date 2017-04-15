@@ -21,10 +21,11 @@ extends(src='layout.sgr')
       include(src='rows/_default.sgr')
       include(src='rows/_align-center.sgr')
       include(src='rows/_align-right.sgr')
-      include(src='rows/_between-reversed-center.jade')
+      include(src='rows/_between-reversed-center.sgr')
       include(src='rows/_full-width.sgr')
       
       h1(name="grids") Grids
+      include(src='grids/_masonry.sgr')
       include(src='grids/_default.sgr')
       include(src='grids/_extrinsic.sgr')
       
