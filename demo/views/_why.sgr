@@ -1,17 +1,18 @@
 article.full-page
   h1(name="why") Why?
-  p(md) Forget `xs-col-5` or `IbBox W(1/3)`, let's use the same speak we do with people, with our machines. **The way we talk about the grid, should be the same way we code the grid.** Here's a RAGrid:
+  p(md) Forget `xs-col-5` or `IbBox W(1/3)`, let's use the same speak we do with people, with our machines. **The way we talk about the grid, should be the same way we code the grid.** Plus, components are getting popular, and this strategy is much better suited for cards, navbars, lists, etc, than a 12-column strategy.
 
   code(class='language-markup')
-    | &lt;section grid="columns" vertically-aligned="center" horizontally-distributed="between"&gt;…&lt;/section&gt;
+    | &lt;nav grid="columns" vertically-aligned="center" horizontally-distributed="between"&gt;…&lt;/nav&gt;
 
-  p(md) This is bread and butter auto-layout. If this was your nav bar, each item would be perfectly vertically aligned and equally spread across the bar, butted up to the edges. Mmmmhmmm. Designer or client can add nav items, remove them, your component doesn't care. You aren't building extrinsicly, like with `xs-col-12 sm-col-4 lg-col-3`.
+  p(md) Reads like a book right? This is bread and butter auto-layout. If this was your nav bar, each item would be perfectly vertically aligned and equally spread across the bar, butted up to the edges. Mmmmhmmm. Designer or client can add nav items, remove them, your component doesn't care, **it's ready for dynamic content**. You aren't building extrinsicly, like with `xs-col-12 sm-col-4 lg-col-3`.
 
-  h3 tldr;
+  h2 Features:
   ul
     li(md) Columns and rows are [intrinsicly](https://www.w3.org/TR/css-sizing-3/) sized by default, so they rag and flow like typography (RAGrid.. get it..)
     li It follows the Adobe/Sketch align tool jargon
     li Layout is described via attributes & values instead of classes
     li(md) Offers a 12-column system, even though it's trying to inspire you out of [extrinsic](https://www.w3.org/TR/css-sizing-3/) grid sizing
+    li Can do horizontal and vertical masonry with no javascript
     li Number of children can change and not break your layout!
     li: b Auto-layout is cool 👍

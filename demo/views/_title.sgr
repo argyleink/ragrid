@@ -4,5 +4,5 @@
     li(title='Like this numbered list') Flows and rags like text
     li(md) Works like **auto-layout** by **aligning** and **distributing**
     li Uses recognizable attributes instead of classes
-    li Capable of 12-column layouts
+    li Capable of 12-column layouts & masonry
     li Tiny

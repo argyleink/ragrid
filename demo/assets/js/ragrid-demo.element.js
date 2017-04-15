@@ -65,6 +65,11 @@ export default class RagridDemo extends HTMLElement {
       , title:  'Align to the box contents text baseline'
       , text:   'Baseline Align'
       }
+    , { attr:   'direction'
+      , val:    'masonry'
+      , title:  'Pack them in'
+      , text:   'Masonry'
+      }
     ]
 
     // Create a store for our demo state
@@ -88,6 +93,7 @@ export default class RagridDemo extends HTMLElement {
       .map(e => {
         let new_state = {}
         new_state[e.target.dataset.attrKey] = e.target.dataset.attrVal
+        if (e.target.dataset.attrVal == 'masonry') new_state.boxes = 8
         return new_state
       })
       .subscribe(patch => this.Ragrid.actions.update(patch))
@@ -120,7 +126,7 @@ export default class RagridDemo extends HTMLElement {
   
   render(grid) {
     this.innerHTML = `
-      <code class="language-markup">
+      <code class="language-markup" id="demo">
         &lt;div
           grid="${grid.direction}"
           ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}

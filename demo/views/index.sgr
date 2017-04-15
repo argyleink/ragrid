@@ -7,7 +7,7 @@ extends(src='layout.sgr')
       include(src='_why.sgr')
       include(src='_docs.sgr')
 
-      h1(name="columns") Columns
+      h1(id="columns") Columns
       include(src='columns/_default.sgr')
       include(src='columns/_distribute-around.sgr')
       include(src='columns/_align-bottom.sgr')
@@ -17,18 +17,18 @@ extends(src='layout.sgr')
       include(src='columns/_equal-width.sgr')
       include(src='columns/_equal-height.sgr')
       
-      h1(name="rows") Rows
+      h1(id="rows") Rows
       include(src='rows/_default.sgr')
       include(src='rows/_align-center.sgr')
       include(src='rows/_align-right.sgr')
       include(src='rows/_between-reversed-center.sgr')
       include(src='rows/_full-width.sgr')
       
-      h1(name="grids") Grids
+      h1(id="grids") Grids
       include(src='grids/_masonry.sgr')
       include(src='grids/_default.sgr')
       include(src='grids/_extrinsic.sgr')
       
-      h1(name="extra") Extra
+      h1(id="extra") Examples
       include(src='grids/_editable.sgr')
       include(src='grids/_nav.sgr')

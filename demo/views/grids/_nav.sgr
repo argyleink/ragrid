@@ -1,28 +1,34 @@
 article.example-navs
   header
-    h2 Navbar
-    small Achieve the layout and hover effect you want easily
+    h2 Navbars
+    small Nested alignments and distributions are easy
+    code(class='language-markup') &lt;nav grid="columns" vertically-aligned="center" horizontally-distributed="between"&gt;…&lt;/nav&gt;
+  .bar(grid='columns' vertically-aligned='center' horizontally-distributed='between')
+    h2 RAGrid
+    nav(grid="columns" vertically-aligned='center')
+      a Home
+      a News
+      a About
+      a Contact
+
+article.example-navs
+  header
+    h2 Link Distribution
+    small Footers, navbars, cards
     code(class='language-markup') &lt;nav grid="columns" horizontally-distributed="equal"&gt;…&lt;/nav&gt;
   nav(grid="columns" horizontally-distributed='equal' vertically-aligned='center')
     a Home
     a News
     a About
     a Contact
+    a Shop
   nav(grid="columns" horizontally-aligned='center' vertically-aligned='center')
     a Home
     a News
     a About
     a Contact
-  nav(grid="columns" horizontally-aligned='left' vertically-aligned='center')
-    a Home
-    a News
-    a About
-    a Contact
-  nav(grid="columns" horizontally-aligned='right' vertically-aligned='center')
-    a Home
-    a News
-    a About
-    a Contact
+    a Shop
+    a FAQ
   nav(grid="rows" horizontally-aligned='center' vertically-aligned='center')
     a Home
     a News

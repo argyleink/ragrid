@@ -1,8 +1,16 @@
 article.full-page
   h1(name="docs") Docs
-  p(md) `npm i ragrid -D` `yarn add ragrid` `bower i ragrid -D`
+  p(md) RAGrid can be downloaded using your favorite tools: `npm i ragrid -D` `yarn add ragrid` `bower i ragrid -D`
 
-  p(md) Getting started is easy, just add one attribute to your container `grid`. Instead of writing lengthy docs, please find the RAGrid API by inspecting the code in the examples below or use the demo.  
+  p(md) Getting started is easy, just add one attribute to your container `grid`! Boom, that gives you columns. So, instead of writing lengthy docs, please find the RAGrid API by inspecting the code in the examples below or use the demo.  
+
+  p Jump To:
+  ul
+    li: a(href='#demo') Interactive Demo
+    li: a(href='#columns') Columns
+    li: a(href='#rows') Rows
+    li: a(href='#grids') Grids
+    li: a(href='#examples') Example
   
   p(md) **It's very simple.** So much so, that it might be good to quicky spell out the things you *won't* find in RAGrid:
   ul
