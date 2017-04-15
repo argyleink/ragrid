@@ -12,6 +12,11 @@ html
       meta(name='viewport' content='width=device-width, initial-scale=1')
       meta(property='og:image' content='img/logo.png')
       meta(property='og:description' content='Works like auto-layout by aligning and distributing children. Capable of 12-column and masonry layouts. Optimal for component development.')
+      meta(name='twitter:card' content='summary_large_image')
+      meta(name='twitter:site' content='@argyleink')
+      meta(name='twitter:creator' content='@argyleink')
+      meta(name='twitter:image' content='img/logo.png')
+      meta(name='twitter:description' content='Works like auto-layout by aligning and distributing children. Capable of 12-column and masonry layouts. Optimal for component development.')
 
     block(name='title')
       title RAGrid
