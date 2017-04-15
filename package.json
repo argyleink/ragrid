@@ -1,6 +1,6 @@
 {
   "name": "ragrid",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Intrinsic first flexbox grid",
   "main": "ragrid.min.css",
   "scripts": {
