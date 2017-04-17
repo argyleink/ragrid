@@ -12,7 +12,7 @@ bower i ragrid
 ## Using
 ```javascript
 @import url('path_to/ragrid.min.css')         // css
-require 'path_to/ragrid'                      // stylus
+@require 'path_to/ragrid'                     // stylus
 let ragrid = require('path_to/ragrid.styl')   // ES6
 ```
 
