@@ -1,5 +1,5 @@
 ## Why
-Why another grid? I'd like the way we talk about the grid, to be the same way we code the grid. Also, this grid also opts to align and distribute elements, making more flexible components and layouts then can be achieved with a 12 column grid.
+Why another grid? I'd like the way we talk about the grid, to be the same way we code the grid. RAGrid is different than the other grids too. It works like auto-layout by aligning and distributing children. In addition, it's capable of 12-column and masonry layouts, but is trying to teach intrinsic layout usage as opposed to extrinsic. This grid is optimal for component development since it's more prepared for dynamic content than the average grid.
 
 [Check out the demo & docs site](https://argyleink.github.io/ragrid/).
 
