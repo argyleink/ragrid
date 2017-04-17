@@ -1,6 +1,14 @@
 extends(src='layout.sgr')
   block(name='content')
     include(src='_title.sgr')
+
+    //- nav.quick-links
+    //-   a(href='#demo') #Demo
+    //-   a(href='#columns') #Columns
+    //-   a(href='#rows') #Rows
+    //-   a(href='#grids') #Grids
+    //-   a(href='#examples') #Examples
+
     ragrid-demo
 
     main(role='main' id='{{ pageId }}')
@@ -29,6 +37,6 @@ extends(src='layout.sgr')
       include(src='grids/_default.sgr')
       include(src='grids/_extrinsic.sgr')
       
-      h1(id="extra") Examples
+      h1(id="examples") Examples
       include(src='grids/_editable.sgr')
       include(src='grids/_nav.sgr')

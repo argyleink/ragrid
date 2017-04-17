@@ -10,7 +10,7 @@ article.full-page
     li: a(href='#columns') Columns
     li: a(href='#rows') Rows
     li: a(href='#grids') Grids
-    li: a(href='#examples') Example
+    li: a(href='#examples') Examples
   
   p(md) **It's very simple.** So much so, that it might be good to quicky spell out the things you *won't* find in RAGrid:
   ul
