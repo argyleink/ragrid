@@ -9,15 +9,12 @@ article
 
 .full-page
   min-height: 75vh
-
-.light_text_shadow
-  text-shadow: 0 1px 1px hsl(200,40%,65%)
       
 // this class demonstrates how the parent can take control over sizing, as well as let it be determined by the child itself
 .demo_box, .demo_row_box
-  @extend .light_text_shadow
-  height: 100px
-  width: 100px
+  text-shadow: 0 1px 1px hsl(200,40%,65%)
+  height: 75px
+  width: 75px
   color: white
   position: relative
   
@@ -44,6 +41,11 @@ article
   &:nth-child(2n) > span
     margin-top: 3rem
 
+@media(min-width:480px)
+  .demo_box, .demo_row_box
+    height: 100px
+    width: 100px
+
 .tall
   height: 500px
     
@@ -63,7 +65,7 @@ article
   width: 50px
   
 .demo_perfect_center
-  @extend .light_text_shadow
+  text-shadow: 0 1px 1px hsl(200,40%,65%)
   height: 200px
   padding: 1rem 2rem
   color: white

@@ -8,7 +8,7 @@ html
       meta(name='author' content='argyleink')
       meta(name='mobile-web-app-capable' content='yes')
       meta(name='HandheldFriendly' content='true')
-      meta(name='theme-color' content='#b8d3e0')
+      meta(name='theme-color' content='#000000')
       meta(name='viewport' content='width=device-width, initial-scale=1')
       meta(property='og:image' content='img/logo.png')
       meta(property='og:description' content='Works like auto-layout by aligning and distributing children. Capable of 12-column and masonry layouts. Optimal for component development.')

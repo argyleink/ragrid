@@ -8,7 +8,7 @@ ragrid-demo
   & > [grid]
     margin-top: 1rem
   
-  & nav
+  & nav > .align-panel
     width: 230px
     
   & .controls
@@ -28,8 +28,7 @@ ragrid-demo
       opacity: 0.1
       min-height: 1.5em
       
-  & article 
-    margin-left: 2rem
+  & article
     
     & > section
       & > div:nth-child(1)
@@ -52,6 +51,12 @@ ragrid-demo
   & .feature
     margin-top: 1rem
     margin-bottom: 0.5rem
+
+// tablet and up styles
+@media(min-width:480px)
+  ragrid-demo
+    & article
+      margin-left: 2rem
 
 .align-panel
   position: relative
