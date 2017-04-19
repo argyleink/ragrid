@@ -12,7 +12,7 @@ export default class RagridDemo extends HTMLElement {
     , 'vertically-distributed':     ''
     , direction:                    'columns'
     , order:                        ''
-    , minHeight:                    '50vh'
+    , minHeight:                    '500px'
     , maxHeight:                    ''
     , width:                        '3'
     , boxes:                        4
@@ -20,7 +20,7 @@ export default class RagridDemo extends HTMLElement {
 
     this.masonry = {
       boxes                   : 8
-    , minHeight               : '50vh'
+    , minHeight               : '500px'
     , maxHeight               : '90vh'
     , 'horizontally-aligned'  : 'left'
     , 'vertically-aligned'    : 'center'
