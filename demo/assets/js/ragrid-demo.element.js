@@ -12,9 +12,18 @@ export default class RagridDemo extends HTMLElement {
     , 'vertically-distributed':     ''
     , direction:                    'columns'
     , order:                        ''
-    , height:                       '50vh'
+    , minHeight:                    '50vh'
+    , maxHeight:                    ''
     , width:                        '3'
     , boxes:                        4
+    }
+
+    this.masonry = {
+      boxes                   : 8
+    , minHeight               : '50vh'
+    , maxHeight               : '90vh'
+    , 'horizontally-aligned'  : 'left'
+    , 'vertically-aligned'    : 'center'
     }
 
     this.panel_controls = [
@@ -50,34 +59,49 @@ export default class RagridDemo extends HTMLElement {
     ]
 
     this.controls = [
-      { attr:   'order'
-      , val:    'forward'
-      , title:  'Forward the order'
-      , text:   'Forward'
+      { attr:   'direction'
+      , val:    'masonry'
+      , title:  'Pack them in'
+      , text:   'Masonry'
+      }
+    , { attr:   'direction'
+      , val:    'masonry'
+      , title:  'Pack them in from the bottom'
+      , text:   'Bottom Up Masonry'
+      }
+    , { attr:   'horizontally-distributed'
+      , val:    ''
+      , title:  'Don\'t horizontally distribute'
+      , text:   'No Horizontal Distribution'
+      }
+    , { attr:   'vertically-distributed'
+      , val:    ''
+      , title:  'Don\'t vertically distribute'
+      , text:   'No Vertical Distribution'
       }
     , { attr:   'order'
       , val:    'reverse'
       , title:  'Reverse the order'
       , text:   'Reverse'
       }
+    , { attr:   'order'
+      , val:    'forward'
+      , title:  'Forward the order'
+      , text:   'Forward'
+      }
     , { attr:   'vertically-aligned'
       , val:    'baseline'
       , title:  'Align to the box contents text baseline'
       , text:   'Baseline Align'
       }
-    , { attr:   'direction'
-      , val:    'masonry'
-      , title:  'Pack them in'
-      , text:   'Masonry'
-      }
     ]
 
     // Create a store for our demo state
     this.Ragrid = RxStore(this.initial_state, {
-      update: patch => state => Object.assign({}, state, patch)
-    , add_box: () => state => Object.assign({}, state, {boxes: state.boxes + 1})
-    , set_height: height => state => Object.assign({}, state, {height})
-    , set_width: width => state => Object.assign({}, state, {width})
+      update:           patch =>      state => Object.assign({}, state, patch)
+    , add_box:          () =>         state => Object.assign({}, state, {boxes: state.boxes + 1})
+    , set_minHeight:    minHeight =>  state => Object.assign({}, state, {minHeight})
+    , set_width:        width =>      state => Object.assign({}, state, {width})
     })
 
     // opt into nice state change logs
@@ -93,7 +117,19 @@ export default class RagridDemo extends HTMLElement {
       .map(e => {
         let new_state = {}
         new_state[e.target.dataset.attrKey] = e.target.dataset.attrVal
-        if (e.target.dataset.attrVal == 'masonry') new_state.boxes = 8
+
+        // set masonry custom attributes
+        if (e.target.dataset.attrVal == 'masonry')
+          new_state = Object.assign(new_state, this.masonry)
+
+        // set bottom up masonry attributes
+        if (e.target.innerText == 'Bottom Up Masonry')
+          new_state['horizontally-aligned'] = 'right'
+        
+        // set row settings 
+        if (e.target.dataset.attrVal == 'rows')
+          new_state.maxHeight = '90vh'
+
         return new_state
       })
       .subscribe(patch => this.Ragrid.actions.update(patch))
@@ -104,7 +140,7 @@ export default class RagridDemo extends HTMLElement {
 
     this.height$ = Observable.fromEvent(this, 'click')
       .filter(e => e.target.hasAttribute('ragrid-auto-height'))
-      .subscribe(e => this.Ragrid.actions.set_height())
+      .subscribe(e => this.Ragrid.actions.set_minHeight())
 
     this.width$ = Observable.fromEvent(this, 'click')
       .filter(e => e.target.hasAttribute('ragrid-auto-width'))
@@ -153,14 +189,14 @@ export default class RagridDemo extends HTMLElement {
             <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>
           </div>
           <div class="feature">
-            <h5>Align Panel can't do this:</h5>
+            <h4>Align Panel can't do this:</h4>
             ${this.controls.reduce((items, item) => 
               `${items}
                <button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}">${item.text}</button>`
             , '')}
           </div>
           <div class="feature">
-            <h5>Demo Controls:</h5>
+            <h4>Demo Controls:</h4>
             <button ragrid-reset>Reset</button>
             <button ragrid-add>Add Box</button>
             <button ragrid-auto-height>Auto Height Container</button>
@@ -168,13 +204,13 @@ export default class RagridDemo extends HTMLElement {
           </div>
         </nav>
         <article ${grid.width ? 'style="flex:'+grid.width+';"' : ''}><section 
-          style="min-height:${grid.height};"
+          style="min-height:${grid.minHeight};max-height:${grid.maxHeight};"
           grid="${grid.direction}" 
-          horizontally-aligned="${grid['horizontally-aligned']}" 
-          vertically-aligned="${grid['vertically-aligned']}"
-          horizontally-distributed="${grid['horizontally-distributed']}" 
-          vertically-distributed="${grid['vertically-distributed']}"
-          order="${grid['order']}"
+          ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
+          ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
+          ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
+          ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
+          ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
         >
           ${Array.apply(null, {length:grid.boxes}).reduce((boxes, box) => 
             `${boxes}<div class="demo_box"></div>`

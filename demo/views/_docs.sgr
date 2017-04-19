@@ -1,19 +1,56 @@
+h1(id="docs") Docs
 article.full-page
-  h1(name="docs") Docs
-  p(md) RAGrid can be downloaded using your favorite tools: `npm i ragrid -D` `yarn add ragrid` `bower i ragrid -D`
+  p(md) RAGrid can be downloaded using your favorite tools: `npm i ragrid -D` || `yarn add ragrid` || `bower i ragrid -D`
 
-  p(md) Getting started is easy, just add one attribute to your container `grid`! Boom, that gives you columns. So, instead of writing lengthy docs, please find the RAGrid API by inspecting the code in the examples below or use the demo.  
+  p(md) Getting started is easy, just add one attribute to your container `&lt;section grid&gt;…&lt;/section&gt;`! Boom, that gives you columns. **It's very simple.** There's lots of examples below to help get you kickstarted. Even the attributes datatable below is a RAGrid (finishes chewing own dogfood). 
 
-  p Jump To:
+  p(md) This library empowers most of what flexbox can do, but not all of it. So when the time comes and your component needs some custom alignment, distribution, or sizing, the good news is that the selectors from RAGrid will **not** be a battle to work with in your media queries or override selectors. I hated that about Bootstrap (which is still a great tool), but customizing a layout got pretty gnar. Anticipate simplicity here.
+
+  p: b Not Included:
   ul
-    li: a(href='#demo') Interactive Demo
-    li: a(href='#columns') Columns
-    li: a(href='#rows') Rows
-    li: a(href='#grids') Grids
-    li: a(href='#examples') Examples
-  
-  p(md) **It's very simple.** So much so, that it might be good to quicky spell out the things you *won't* find in RAGrid:
-  ul
-    li No included media queries
-    li No polyfills or fallbacks if flexbox isn't supported
-    li No learning curve or flex of complexity
+    li Media queries
+    li Polyfills or fallbacks if flexbox isn't supported
+    li Learning curve
+
+  h2 RAGrid Attributes
+  .table
+    .row.table-titles(grid='columns' column-size='1/4')
+      div Attribute
+      div Accepted Values
+      div Default
+      div Description
+    .row(grid='columns' column-size='1/4')
+      div grid
+      div columns, rows, masonry
+      div columns
+      div Starts a grid with self sized columns
+    .row(grid='columns' column-size='1/4')
+      div order
+      div forward, reverse
+      div forward
+      div Quick attributes for layout direction
+    .row(grid='columns' column-size='1/4')
+      div horizontally-aligned
+      div left, center, right
+      div left
+      div Alignment along the x-axis
+    .row(grid='columns' column-size='1/4')
+      div vertically-aligned
+      div top, center, bottom, baseline
+      div top
+      div Alignment along the y-axis
+    .row(grid='columns' column-size='1/4')
+      div horizontally-distributed
+      div around, between, equal
+      div —
+      div Distribution along the x-axis
+    .row(grid='columns' column-size='1/4')
+      div vertically-distributed
+      div around, between, equal
+      div —
+      div Distribution along the y-axis
+    .row(grid='columns' column-size='1/4')
+      div column-size
+      div 1/2, 1/3, 1/4, 1/5, 1/6, 1/7, 1/8, 1/9, 1/10, 1/11, 1/12
+      div —
+      div Extrinsic traditional 12-column grid

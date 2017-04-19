@@ -44,6 +44,8 @@ section[grid="masonry"]
   width: 3rem
   height: 3rem
   opacity: 0.5
+  z-index: 2
+
   &:hover
     opacity: 1
   
@@ -57,3 +59,24 @@ section[grid="masonry"]
   top: 2rem
   left: 2rem
   z-index: 2
+
+.table
+  margin-top: 1rem
+  font-size: 0.8rem
+  border-radius: 0.25em
+  
+  & > .row
+    padding: 1rem
+    
+    &:not(.table-titles)
+      border-bottom: 1px solid hsl(0,0%,90%)
+      
+    & > div:not(:last-child)
+      box-sizing: border-box
+      padding-right: 0.5rem
+      
+    
+  & > .table-titles
+    background: hsl(200,40%,85%)
+    color: hsl(200,40%,35%)
+    font-weight: bold

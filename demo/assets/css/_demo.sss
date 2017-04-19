@@ -7,9 +7,9 @@ ragrid-demo
   
   & > [grid]
     margin-top: 1rem
-  
-  & nav > .align-panel
-    width: 230px
+    
+  & [grid="rows"]
+    max-height: 70vh
     
   & .controls
     position: absolute
@@ -24,7 +24,6 @@ ragrid-demo
       width: 70px
       
     & button
-      cursor: pointer
       opacity: 0.1
       min-height: 1.5em
       
@@ -51,10 +50,16 @@ ragrid-demo
   & .feature
     margin-top: 1rem
     margin-bottom: 0.5rem
+    
+    & > h4
+      margin-bottom: 0.5rem
 
 // tablet and up styles
 @media(min-width:480px)
   ragrid-demo
+    & nav
+      flex: 1
+      max-width: 230px
     & article
       margin-left: 2rem
 

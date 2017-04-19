@@ -40,3 +40,6 @@ extends(src='layout.sgr')
       h1(id="examples") Examples
       include(src='grids/_editable.sgr')
       include(src='grids/_nav.sgr')
+
+    footer(grid horizontally-aligned='center' vertically-aligned='center')
+      small Made by <a href=https://twitter.com/argyleink target=_blank>Adam Argyle</a>

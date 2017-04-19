@@ -28,9 +28,9 @@ article.example-navs
     a About
     a Contact
     a Shop
-    a FAQ
   nav(grid="rows" horizontally-aligned='center' vertically-aligned='center')
     a Home
     a News
     a About
     a Contact
+    a Shop
