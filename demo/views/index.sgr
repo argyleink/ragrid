@@ -38,6 +38,7 @@ extends(src='layout.sgr')
       include(src='grids/_extrinsic.sgr')
       
       h1(id="examples") Examples
+      include(src='grids/_card.sgr')
       include(src='grids/_editable.sgr')
       include(src='grids/_nav.sgr')
 

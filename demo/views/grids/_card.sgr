@@ -1,0 +1,21 @@
+article.example-navs
+  header
+    h2 Cards
+    small No 12-column grid, perfect alignment, minimal nodes: <a href=http://codepen.io/argyleink/pen/bWevzX target=_blank>see codepen</a>
+    code(class='language-markup') &lt;div class="card" grid="rows" vertically-distributed="equal"&gt;…&lt;/div&gt;
+
+  div(grid horizontally-aligned='center')
+    .card(grid='rows' vertically-distributed='equal')
+      .card-header(grid vertically-aligned='center')
+        img.avatar(src='//placehold.it/50x50')
+        div
+          h2 Card Title
+          date November 5th, 2017
+      .card-content
+        img(src='//placehold.it/500x500')
+        p Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.
+        
+      .card-footer(grid vertically-aligned='center')
+        a(href) Like
+        a(href) Comment
+        time 11m ago

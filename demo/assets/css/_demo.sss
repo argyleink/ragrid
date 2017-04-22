@@ -70,3 +70,50 @@ ragrid-demo
 .guide
   min-height: 30px
   text-align: center
+  
+.card
+  max-width: 400px
+  box-shadow: 0 0.1rem 0.5rem hsl(0,0%,80%)
+  padding: 1rem
+  border-radius: 0.2em
+  background: white
+  
+  & > .card-header
+    & .avatar
+      border-radius: 50%
+      overflow: hidden
+
+    & h2, small
+      margin: 0
+      
+    & > div
+      margin-left: 0.5rem
+      
+    & date
+      font-size: 0.7rem
+      color: hsl(0,0%,50%)
+  
+  & > .card-content
+    margin-top: 0.5rem
+    margin-bottom: 0.5rem
+      
+    & > img
+      max-width: 100%
+      
+    & > p
+      margin-top: 0.5rem
+    
+  & > .card-footer
+    padding-top: 0.5rem
+    border-top: 1px solid hsl(0,0%,90%)
+    
+    & a
+      padding: 0.5rem 1rem
+      &:hover
+        background: hsl(0,0%,90%)
+        
+    & time
+      flex: 2
+      text-align: right
+      font-size: 0.7rem
+      color: hsl(0,0%,50%)
