@@ -30,6 +30,7 @@ npm run crunch # minify css file
 PR? =)
 
 ## Release History
+* 2017-4-23  v1.0.5  Shortened columns syntax
 * 2017-4-15  v1.0.4  Added vertical masonry
 * 2017-4-11  v1.0.3  SCSS support, better docs
 * 2017-4-09  v1.0.0  Make it easy to use

@@ -70,37 +70,37 @@
     - Instead of col-xs-12 or whatever
     - Specify size on the parent
   */
-  &[column-size~="1/2"] > * {
+  &[columns~="2"] > * {
     flex-basis: (100% / 2);
   }
-  &[column-size~="1/3"] > * {
+  &[columns~="3"] > * {
     flex-basis: (100% / 3);
   }
-  &[column-size~="1/4"] > * {
+  &[columns~="4"] > * {
     flex-basis: (100% / 4);
   }
-  &[column-size~="1/5"] > * {
+  &[columns~="5"] > * {
     flex-basis: (100% / 5);
   }
-  &[column-size~="1/6"] > * {
+  &[columns~="6"] > * {
     flex-basis: (100% / 6);
   }
-  &[column-size~="1/7"] > * {
+  &[columns~="7"] > * {
     flex-basis: (100% / 7);
   }
-  &[column-size~="1/8"] > * {
+  &[columns~="8"] > * {
     flex-basis: (100% / 8);
   }
-  &[column-size~="1/9"] > * {
+  &[columns~="9"] > * {
     flex-basis: (100% / 9);
   }
-  &[column-size~="1/10"] > * {
+  &[columns~="10"] > * {
     flex-basis: (100% / 10);
   }
-  &[column-size~="1/11"] > * {
+  &[columns~="11"] > * {
     flex-basis: (100% / 11);
   }
-  &[column-size~="1/12"] > * {
+  &[columns~="12"] > * {
     flex-basis: (100% / 12);
   }
 }
