@@ -55,6 +55,13 @@ ragrid-demo
     & > h4
       margin-bottom: 0.5rem
 
+  & section[grid="masonry"]
+    height: 500px
+    
+    & > .demo_box
+      width: 100px
+      width: 27vw
+
 // tablet and up styles
 @media(min-width:768px)
   ragrid-demo
@@ -63,6 +70,13 @@ ragrid-demo
       max-width: 230px
     & article
       margin-left: 2rem
+    & section[grid="masonry"]
+      height: 350px
+      
+      & > .demo_box
+        width: 225px
+        max-width: 225px
+        width: 15vw
 
 .align-panel
   position: relative

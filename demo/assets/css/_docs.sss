@@ -41,6 +41,21 @@ article
   &:nth-child(2n) > span
     margin-top: 3rem
 
+section[grid="masonry"]
+  height: 500px
+  
+  & > .demo_box
+    width: 150px
+    width: 27vw
+    max-width: 150px
+
+@media(min-width:768px)
+  section[grid="masonry"]
+    & > .demo_box
+      width: 250px
+      width: 20vw
+      max-width: 300px
+
 @media(min-width:480px)
   .demo_box, .demo_row_box
     height: 100px
