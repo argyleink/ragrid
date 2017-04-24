@@ -2,8 +2,8 @@ article
   header
     h2 Extrinsic Sizing
     small But the children can be told a size, similar to most grids
-    code(class='language-markup') &lt;section grid="columns" columns="5"&gt;…&lt;/section&gt;
-  section(grid='columns' columns='5')
+    code(class='language-markup') &lt;section grid columns="5"&gt;…&lt;/section&gt;
+  section(grid columns='5')
     .demo_box
     .demo_box
     .demo_box

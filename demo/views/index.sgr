@@ -2,45 +2,51 @@ extends(src='layout.sgr')
   block(name='content')
     include(src='_title.sgr')
 
-    //- nav.quick-links
-    //-   a(href='#demo') #Demo
-    //-   a(href='#columns') #Columns
-    //-   a(href='#rows') #Rows
-    //-   a(href='#grids') #Grids
-    //-   a(href='#examples') #Examples
-
     ragrid-demo
 
     main(role='main' id='{{ pageId }}')
       include(src='_why.sgr')
+
+      //- nav.quick-links(grid vertically-aligned='center')
+      //-   a(href='#demo') Demo
+      //-   a(href='#docs') Docs
+      //-   a(href='#columns') Columns
+      //-   a(href='#rows') Rows
+      //-   a(href='#grids') Grids
+      //-   a(href='#examples') Examples
+
       include(src='_docs.sgr')
 
-      h1(id="columns") Columns
-      include(src='columns/_default.sgr')
-      include(src='columns/_distribute-around.sgr')
-      include(src='columns/_align-bottom.sgr')
-      include(src='columns/_align-baseline.sgr')
-      include(src='columns/_reverse.sgr')
-      include(src='columns/_distribute-reverse-center.sgr')
-      include(src='columns/_equal-width.sgr')
-      include(src='columns/_equal-height.sgr')
+      article
+        h1(id="columns") Columns
+        include(src='columns/_default.sgr')
+        include(src='columns/_distribute-around.sgr')
+        include(src='columns/_align-bottom.sgr')
+        include(src='columns/_align-baseline.sgr')
+        include(src='columns/_reverse.sgr')
+        include(src='columns/_distribute-reverse-center.sgr')
+        include(src='columns/_equal-width.sgr')
+        include(src='columns/_equal-height.sgr')
       
-      h1(id="rows") Rows
-      include(src='rows/_default.sgr')
-      include(src='rows/_align-center.sgr')
-      include(src='rows/_align-right.sgr')
-      include(src='rows/_between-reversed-center.sgr')
-      include(src='rows/_full-width.sgr')
+      article
+        h1(id="rows") Rows
+        include(src='rows/_default.sgr')
+        include(src='rows/_align-center.sgr')
+        include(src='rows/_align-right.sgr')
+        include(src='rows/_between-reversed-center.sgr')
+        include(src='rows/_full-width.sgr')
       
-      h1(id="grids") Grids
-      include(src='grids/_masonry.sgr')
-      include(src='grids/_default.sgr')
-      include(src='grids/_extrinsic.sgr')
+      article
+        h1(id="grids") Grids
+        include(src='grids/_masonry.sgr')
+        include(src='grids/_default.sgr')
+        include(src='grids/_extrinsic.sgr')
       
-      h1(id="examples") Examples
-      include(src='grids/_card.sgr')
-      include(src='grids/_editable.sgr')
-      include(src='grids/_nav.sgr')
+      article
+        h1(id="examples") Examples
+        include(src='grids/_card.sgr')
+        include(src='grids/_editable.sgr')
+        include(src='grids/_nav.sgr')
 
     footer(grid horizontally-aligned='center' vertically-aligned='center')
       small Made by <a href=https://twitter.com/argyleink target=_blank>Adam Argyle</a>

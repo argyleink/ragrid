@@ -1,5 +1,6 @@
-h1(id="docs") Docs
 article.full-page
+  h1(id="docs") Docs
+  
   p(md) RAGrid can be downloaded using your favorite tools: `npm i ragrid -D` || `yarn add ragrid` || `bower i ragrid -D`
 
   p(md) Getting started is easy, just add one attribute to your container `&lt;section grid&gt;…&lt;/section&gt;`! Boom, that gives you columns. **It's very simple.** There's lots of examples below to help get you kickstarted. Even the attributes datatable below is a RAGrid (finishes chewing own dogfood). 

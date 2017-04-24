@@ -18,19 +18,18 @@ html
       meta(name='twitter:image' content='https://argyleink.github.io/ragrid/img/logo.png')
       meta(name='twitter:title' content='RAGrid.css')
       meta(name='twitter:description' content='Works like auto-layout by aligning and distributing children. Capable of 12-column and masonry layouts. Optimal for component development.')
+      link(rel='icon' href='favicon.ico')
 
     block(name='title')
-      title RAGrid
+      title RAGrid.css
 
     block(name='stylesheets')
       link(rel='stylesheet' href='css/index.css')
       link(rel='stylesheet' href='css/ragrid.css')
       link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css')
+      script(src='js/main.js')
 
   body(role='document')  
     a.github(href='https://github.com/argyleink/ragrid' target='_blank')
       img(src='img/octocat.svg')
     block(name='content')
-
-    block(name='javascript')
-      script(src='js/main.js' defer)

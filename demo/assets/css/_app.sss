@@ -28,7 +28,8 @@ section[grid="masonry"]
   height: 500px
   
   & > .demo_box
-    width: 125px
+    width: 100px
+    width: 27vw
     
 @media (min-width:768px)
   section[grid="masonry"]
@@ -36,6 +37,7 @@ section[grid="masonry"]
     
     & > .demo_box
       width: 225px
+      width: 19vw
 
 .github
   position: fixed
@@ -54,11 +56,13 @@ section[grid="masonry"]
     object-fit: contain
     
 .quick-links
-  background: white
-  position: fixed
+  position: sticky
   top: 2rem
   left: 2rem
   z-index: 2
+  & > a
+    font-size: 0.9rem
+    margin-right: 0.5rem
 
 .table
   margin-top: 1rem
