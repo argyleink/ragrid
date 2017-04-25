@@ -177,12 +177,10 @@ export default class RagridDemo extends HTMLElement {
           <div class="align-panel">
             ${this.panel_controls.reduce((controls, control) => 
               `${controls}
-              <div class="controls ${control.section}" grid="rows" vertically-distributed="equal">
-                <div grid="columns" horizontally-distributed="equal">
-                  ${control.buttons.reduce((items, item) => 
-                    `${items}<button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}"></button>`
-                  , '')}
-                </div>
+              <div class="controls ${control.section}" grid="columns" horizontally-distributed="equal">
+                ${control.buttons.reduce((items, item) => 
+                  `${items}<button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}"></button>`
+                , '')}
               </div>
               `
             , '')}
