@@ -16,6 +16,7 @@
     "spike-css-standards": "^1.0.0",
     "spike-page-id": "^1.0.0",
     "tippy.js": "^0.3.6",
+    "virtual-dom": "^2.1.1",
     "webpack": "^2.2.1"
   },
   "devDependencies": {

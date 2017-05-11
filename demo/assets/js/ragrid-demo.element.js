@@ -1,7 +1,11 @@
-import { Observable }      from 'rxjs'
-import { RxStore, Logger } from './rxstore'
-
-import * as Prism from 'prismjs'
+import { Observable }       from 'rxjs'
+import { RxStore, Logger }  from './rxstore'
+import { 
+  h
+, diff
+, patch }                   from 'virtual-dom'
+import * as createElement   from 'virtual-dom/create-element'
+import * as Prism           from 'prismjs'
 
 export default class RagridDemo extends HTMLElement {
   createdCallback() {
@@ -96,7 +100,7 @@ export default class RagridDemo extends HTMLElement {
       }
     ]
 
-    // Create a store for our demo state
+    // Create an observable for our demo element's state
     this.Ragrid = RxStore(this.initial_state, {
       update:           patch =>      state => Object.assign({}, state, patch)
     , add_box:          () =>         state => Object.assign({}, state, {boxes: state.boxes + 1})
@@ -106,13 +110,24 @@ export default class RagridDemo extends HTMLElement {
 
     // opt into nice state change logs
     Logger('RagridDemo', this.Ragrid.store$)
+
+    // vdom for minimal element touches
+    this.tree     = this.vdom(this.initial_state)
+    this.rootNode = createElement(this.tree)
+    this.appendChild(this.rootNode)
+
+    // syntax highlight code
+    Prism.highlightElement(this.querySelector('code'))
   }
 
   attachedCallback() {
     // our observable number to render on changes
     this.grid$ = this.Ragrid.store$.subscribe(grid => this.render(grid))
     
-    this.align_panel$ = Observable.fromEvent(this, 'click')
+    // stream of clicks on this element
+    this.clicks$ = Observable.fromEvent(this, 'click')
+
+    this.align_panel$ = this.clicks$
       .filter(e => e.target.hasAttribute('data-attr-key'))
       .map(e => {
         let new_state = {}
@@ -134,89 +149,118 @@ export default class RagridDemo extends HTMLElement {
       })
       .subscribe(patch => this.Ragrid.actions.update(patch))
 
-    this.add$ = Observable.fromEvent(this, 'click')
+    this.add$ = this.clicks$
       .filter(e => e.target.hasAttribute('ragrid-add'))
       .subscribe(e => this.Ragrid.actions.add_box())
 
-    this.height$ = Observable.fromEvent(this, 'click')
+    this.height$ = this.clicks$
       .filter(e => e.target.hasAttribute('ragrid-auto-height'))
       .subscribe(e => this.Ragrid.actions.set_minHeight())
 
-    this.width$ = Observable.fromEvent(this, 'click')
+    this.width$ = this.clicks$
       .filter(e => e.target.hasAttribute('ragrid-auto-width'))
       .subscribe(e => this.Ragrid.actions.set_width())
 
-    this.reset$ = Observable.fromEvent(this, 'click')
+    this.reset$ = this.clicks$
       .filter(e => e.target.hasAttribute('ragrid-reset'))
       .subscribe(e => this.Ragrid.actions.update(this.initial_state))
   }
 
   detachedCallback() {
     this.grid$.unsubscribe()
-    this.align_panel$.unsubscribe()
-    this.add$.unsubscribe()
-    this.reset$.unsubscribe()
+    this.clicks$.unsubscribe()
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {}
-  
-  render(grid) {
-    this.innerHTML = `
-      <code class="language-markup" id="demo">
-        &lt;div
+
+  vdom(grid) {
+    return h('div', [
+      h('code.language-markup', { id: 'demo' }, `
+        <div
           grid="${grid.direction}"
           ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
           ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
           ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
           ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
           ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
-        &gt;…&lt;/div&gt;
-      </code>
-      <div grid="columns">
-        <nav>
-          <div class="align-panel">
-            ${this.panel_controls.reduce((controls, control) => 
-              `${controls}
-              <div class="controls ${control.section}" grid="columns" horizontally-distributed="equal">
-                ${control.buttons.reduce((items, item) => 
-                  `${items}<button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}"></button>`
-                , '')}
-              </div>
-              `
-            , '')}
-            <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>
-          </div>
-          <div class="feature">
-            <h4>Align Panel can't do this:</h4>
-            ${this.controls.reduce((items, item) => 
-              `${items}
-               <button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}">${item.text}</button>`
-            , '')}
-          </div>
-          <div class="feature">
-            <h4>Demo Controls:</h4>
-            <button ragrid-reset>Reset</button>
-            <button ragrid-add>Add Box</button>
-            <button ragrid-auto-height>Auto Height Container</button>
-            <button ragrid-auto-width>Auto Width Container</button>
-          </div>
-        </nav>
-        <article ${grid.width ? 'style="flex:'+grid.width+';"' : ''}><section 
-          style="min-height:${grid.minHeight};max-height:${grid.maxHeight};"
-          grid="${grid.direction}" 
-          ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
-          ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
-          ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
-          ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
-          ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
-        >
-          ${Array.apply(null, {length:grid.boxes}).reduce((boxes, box) => 
-            `${boxes}<div class="demo_box"></div>`
-          , '')}
-        </section></article>
-      </div>
-    `
-    Prism.highlightElement(this.querySelector('code'))
+        >…</div>
+      `)
+    , h('div', {
+        attributes: {
+          grid: 'columns'
+        }
+      }, 
+      [
+        h('nav', [
+          h('.align-panel', [
+            this.panel_controls.map(control =>
+              h(`.controls.${control.section}`, { attributes: {
+                grid: 'columns'
+              , 'horizontally-distributed': 'equal'
+              }}, control.buttons.map(btn => 
+                h('button', { attributes: {
+                  'data-attr-key':    btn.attr
+                , 'data-attr-val':    btn.val
+                , 'title':            btn.title
+                }})
+              ))
+            )
+          , h('img', { src: 'https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG' })
+          ])
+        , h('.feature', [
+            h('h4', 'Align Panel can\'t do this:')
+          , this.controls.map(btn => h('button', { attributes: {
+              'data-attr-key':    btn.attr
+            , 'data-attr-val':    btn.val
+            , 'title':            btn.title
+            }}, btn.text))
+          ])
+        , h('.feature', [
+            h('h4', 'Demo Controls:')
+          , h('button', { attributes: {
+              'ragrid-reset': '' 
+            }}, 'Reset')
+          , h('button', { attributes: {
+              'ragrid-add': '' 
+            }}, 'Add Box')
+          , h('button', { attributes: {
+              'ragrid-auto-height': '' 
+            }}, 'Auto Height Container')
+          , h('button', { attributes: {
+              'ragrid-auto-width': '' 
+            }}, 'Auto Width Container')
+          ])
+        ])
+      , h('article', {
+          style: {
+            flex: grid.width
+          }
+        }, [
+          h('section', {
+            style: {
+              'min-height': grid.minHeight
+            , 'max-height': grid.maxHeight
+            },
+            attributes: {
+              grid:                     grid.direction
+            , order:                    grid.order
+            , 'vertically-aligned':     grid['vertically-aligned']
+            , 'horizontally-aligned':   grid['horizontally-aligned']
+            , 'vertically-distributed': grid['vertically-distributed']
+            , 'horizontally-aligned':   grid['horizontally-aligned']
+            }
+          }, 
+          Array.apply(null, {length:grid.boxes}).map(box => h('.demo_box'))
+        )])
+      ])
+    ])
+  }
+  
+  render(grid) {
+    let newTree     = this.vdom(grid)
+    let patches     = diff(this.tree, newTree)
+    this.rootNode   = patch(this.rootNode, patches)
+    this.tree       = newTree
   }
 }
 
