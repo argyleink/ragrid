@@ -12,6 +12,7 @@ or cheat and let github host it by pointing to `https://rawgit.com/argyleink/rag
 
 ## Using
 ```javascript
+@import 'ragrid'                              // postCSS
 @import url('path_to/ragrid.min.css')         // css
 @require 'path_to/ragrid'                     // stylus
 let ragrid = require('path_to/ragrid.styl')   // ES6
