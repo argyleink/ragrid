@@ -19,6 +19,7 @@ extends(src='layout.sgr')
 
       article
         h1(id="columns") Columns
+        p.subheader Inspect the code for further learning & understanding
         include(src='columns/_default.sgr')
         include(src='columns/_distribute-around.sgr')
         include(src='columns/_align-bottom.sgr')

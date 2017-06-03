@@ -6,102 +6,113 @@ import * as Prism from 'prismjs'
 export default class RagridDemo extends HTMLElement {
   createdCallback() {
     this.initial_state = {
-      'horizontally-aligned':       ''
-    , 'vertically-aligned':         ''
-    , 'horizontally-distributed':   ''
-    , 'vertically-distributed':     ''
-    , direction:                    'columns'
-    , order:                        ''
-    , minHeight:                    '500px'
-    , maxHeight:                    ''
-    , width:                        '3'
-    , boxes:                        4
+      'horizontally-aligned':       '',
+      'vertically-aligned':         '',
+      'horizontally-distributed':   '',
+      'vertically-distributed':     '',
+      direction:                    'columns',
+      order:                        '',
+      minHeight:                    '500px',
+      maxHeight:                    '',
+      width:                        '3',
+      boxes:                        4,
     }
 
     this.masonry = {
-      boxes                   : 8
-    , minHeight               : '500px'
-    , maxHeight               : '90vh'
-    , 'horizontally-aligned'  : 'left'
-    , 'vertically-aligned'    : 'center'
+      boxes:                        8,
+      minHeight:                    '500px',
+      maxHeight:                    '90vh',
+      'horizontally-aligned':       'left',
+      'vertically-aligned':         'center',
+      'horizontally-distributed':   '',
+      'vertically-distributed':     '',
+    }
+
+    this.packery = {
+      boxes:                        8,
+      direction:                    'columns',
+      'horizontally-aligned':       '',
+      'vertically-aligned':         '',
+      'horizontally-distributed':   'equal',
+      'vertically-distributed':     'equal',
     }
 
     this.panel_controls = [
       {
         section: 'align-objects',
         buttons:  [
-          { attr: 'horizontally-aligned', val: 'left',    title: 'Horizontally align to the left' }
-        , { attr: 'horizontally-aligned', val: 'center',  title: 'Horizontally align to the center' }
-        , { attr: 'horizontally-aligned', val: 'right',   title: 'Horizontally align to the right' }
-        , { attr: 'vertically-aligned',   val: 'top',     title: 'Vertically align to the top' }
-        , { attr: 'vertically-aligned',   val: 'center',  title: 'Vertically align to the center' }
-        , { attr: 'vertically-aligned',   val: 'bottom',  title: 'Vertically align to the bottom' }
+          { attr: 'horizontally-aligned', val: 'left',    title: 'Horizontally align to the left' },
+          { attr: 'horizontally-aligned', val: 'center',  title: 'Horizontally align to the center' },
+          { attr: 'horizontally-aligned', val: 'right',   title: 'Horizontally align to the right' },
+          { attr: 'vertically-aligned',   val: 'top',     title: 'Vertically align to the top' },
+          { attr: 'vertically-aligned',   val: 'center',  title: 'Vertically align to the center' },
+          { attr: 'vertically-aligned',   val: 'bottom',  title: 'Vertically align to the bottom' },
         ],
       },
       {
         section: 'distribute-objects',
         buttons:  [
-          { attr: 'horizontally-distributed', val: 'between', title: 'Horizontally distribute space between, edge to edge' }
-        , { attr: 'horizontally-distributed', val: 'around',  title: 'Horizontally distribute space evenly' }
-        , { attr: 'horizontally-distributed', val: 'equal',   title: 'Horizontally fill all space' }
-        , { attr: 'vertically-distributed',   val: 'between', title: 'Vertically distribute space between, edge to edge' }
-        , { attr: 'vertically-distributed',   val: 'around',  title: 'Vertically distribute space evenly' }
-        , { attr: 'vertically-distributed',   val: 'equal',   title: 'Vertically fill all space' }
+          { attr: 'horizontally-distributed', val: 'between', title: 'Horizontally distribute space between, edge to edge' },
+          { attr: 'horizontally-distributed', val: 'around',  title: 'Horizontally distribute space evenly' },
+          { attr: 'horizontally-distributed', val: 'equal',   title: 'Horizontally fill all space' },
+          { attr: 'vertically-distributed',   val: 'between', title: 'Vertically distribute space between, edge to edge' },
+          { attr: 'vertically-distributed',   val: 'around',  title: 'Vertically distribute space evenly' },
+          { attr: 'vertically-distributed',   val: 'equal',   title: 'Vertically fill all space' },
         ],
       },
       {
         section: 'distribute-spacing',
         buttons: [
-          { attr: 'direction', val: 'rows',     title: 'Rows' }
-        , { attr: 'direction', val: 'columns',  title: 'Columns' }
-        ]
+          { attr: 'direction', val: 'rows',     title: 'Rows' },
+          { attr: 'direction', val: 'columns',  title: 'Columns' },
+        ],
       }
     ]
 
     this.controls = [
-      { attr:   'direction'
-      , val:    'masonry'
-      , title:  'Pack them in'
-      , text:   'Masonry'
-      }
-    , { attr:   'direction'
-      , val:    'masonry'
-      , title:  'Pack them in from the bottom'
-      , text:   'Bottom Up Masonry'
-      }
-    , { attr:   'horizontally-distributed'
-      , val:    ''
-      , title:  'Don\'t horizontally distribute'
-      , text:   'No Horizontal Distribution'
-      }
-    , { attr:   'vertically-distributed'
-      , val:    ''
-      , title:  'Don\'t vertically distribute'
-      , text:   'No Vertical Distribution'
-      }
-    , { attr:   'order'
-      , val:    'reverse'
-      , title:  'Reverse the order'
-      , text:   'Reverse'
-      }
-    , { attr:   'order'
-      , val:    'forward'
-      , title:  'Forward the order'
-      , text:   'Forward'
-      }
-    , { attr:   'vertically-aligned'
-      , val:    'baseline'
-      , title:  'Align to the box contents text baseline'
-      , text:   'Baseline Align'
-      }
+      { attr:   'direction',
+        val:    'masonry',
+        title:  'Pack them in',
+        text:   'Masonry',
+      },
+      { attr:   'direction',
+        val:    'masonry',
+        title:  'Pack them in from the left',
+        text:   'Bottom Up Masonry',
+      },
+      { attr:   'direction',
+        val:    'packery',
+        title:  'Pack and fill top down',
+        text:   'Packery',
+      },
+      { attr:   'direction',
+        val:    'packery',
+        title:  'Pack and fill from the left',
+        text:   'Left Packery',
+      },
+      { attr:   'order',
+        val:    'reverse',
+        title:  'Reverse the order',
+        text:   'Reverse',
+      },
+      { attr:   'order',
+        val:    'forward',
+        title:  'Forward the order',
+        text:   'Forward',
+      },
+      { attr:   'vertically-aligned',
+        val:    'baseline',
+        title:  'Align to the box contents text baseline',
+        text:   'Baseline Align',
+      },
     ]
 
     // Create a store for our demo state
     this.Ragrid = RxStore(this.initial_state, {
-      update:           patch =>      state => Object.assign({}, state, patch)
-    , add_box:          () =>         state => Object.assign({}, state, {boxes: state.boxes + 1})
-    , set_minHeight:    minHeight =>  state => Object.assign({}, state, {minHeight})
-    , set_width:        width =>      state => Object.assign({}, state, {width})
+      update:           patch =>      state => Object.assign({}, state, patch),
+      add_box:          () =>         state => Object.assign({}, state, {boxes: state.boxes + 1}),
+      set_minHeight:    minHeight =>  state => Object.assign({}, state, {minHeight}),
+      set_width:        width =>      state => Object.assign({}, state, {width}),
     })
 
     // opt into nice state change logs
@@ -122,9 +133,17 @@ export default class RagridDemo extends HTMLElement {
         if (e.target.dataset.attrVal == 'masonry')
           new_state = Object.assign(new_state, this.masonry)
 
+        // set packery custom attributes
+        if (e.target.dataset.attrVal == 'packery')
+          new_state = Object.assign(new_state, this.packery)
+
         // set bottom up masonry attributes
         if (e.target.innerText == 'Bottom Up Masonry')
           new_state['horizontally-aligned'] = 'right'
+
+        // set bottom up masonry attributes
+        if (e.target.innerText == 'Left Packery')
+          new_state['direction'] = 'rows'
         
         // set row settings 
         if (e.target.dataset.attrVal == 'rows')
@@ -194,11 +213,11 @@ export default class RagridDemo extends HTMLElement {
             , '')}
           </div>
           <div class="feature">
-            <h4>Demo Controls:</h4>
+            <h4>Demo Grid Controls:</h4>
             <button ragrid-reset>Reset</button>
             <button ragrid-add>Add Box</button>
-            <button ragrid-auto-height>Auto Height Container</button>
-            <button ragrid-auto-width>Auto Width Container</button>
+            <button ragrid-auto-height>Auto Height</button>
+            <button ragrid-auto-width>Auto Width</button>
           </div>
         </nav>
         <article ${grid.width ? 'style="flex:'+grid.width+';"' : ''}><section 

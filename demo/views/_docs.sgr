@@ -1,17 +1,25 @@
 article.full-page
   h1(id="docs") Docs
   
-  p(md) RAGrid can be downloaded using your favorite tools: `npm i ragrid -D` || `yarn add ragrid` || `bower i ragrid -D`
+  h2 Downloading
+  p(md) RAGrid can be downloaded using your favorite tools: `npm i ragrid` || `yarn add ragrid` || `bower i ragrid -D`
 
-  p(md) Getting started is easy, just add one attribute to your container `&lt;section grid&gt;…&lt;/section&gt;`! Boom, that gives you columns. **It's very simple.** There's lots of examples below to help get you kickstarted. Even the attributes datatable below is a RAGrid (finishes chewing own dogfood). 
+  h2 Getting Started
+  p(md) Get started by adding a `grid` attribute to your container: `&lt;section grid&gt;…&lt;/section&gt;`. Boom, that treats all children of that node as alignable and distributable. Given the children of that section are small and/or have a size set, they'll align to the top left of the container as if they were text in a paragraph. 
 
-  p(md) This library empowers most of what flexbox can do, but not all of it. So when the time comes and your component needs some custom alignment, distribution, or sizing, the good news is that the selectors from RAGrid will **not** be a battle to work with in your media queries or override selectors. I hated that about Bootstrap (which is still a great tool), but customizing a layout got pretty gnar. Anticipate simplicity here.
+  p(md) Examples below are there to help get you kickstarted. There's also [this codepen](https://codepen.io/argyleink/pen/bWevzX) to poke.
 
+  p(md) This library empowers most of what flexbox can do, but not all of it. So when the time comes and your component needs some custom alignment, distribution, or sizing, the good news is that the selectors from RAGrid will **not** be a battle to work with in your media queries or override selectors. I hated that about Bootstrap (which is still a great tool), but customizing a layout got pretty gnar. Anticipate simplicity here. The attributes datatable below is a RAGrid (finishes chewing own dogfood). 
+
+  h2 Common Gotchas / Tips
+  p Thinking with the mindset of setting the sizes of your child elements and then distributing them is a bit different. Often you'll forget to set the size of a child element and be suprised when it fills the space. 
+  p(md) RAGrid doesn't have any flex value helpers, things like `flex: 1` or `flex: 3`. Adding these to children can be really helpful when you want elements to dominate or shrink in the container. 
+  p(md) On top of sharing space, you'll be needing flex-basis, box-sizing, margin and padding to help you with your other use cases. Margin auto works from all directions too. Plus, at the child node level, you can leverage `align-self` and `justify-self` to put those off grid items into place.
   p: b Not Included:
   ul
     li Media queries
     li Polyfills or fallbacks if flexbox isn't supported
-    li Learning curve
+    li Shorthand methods
 
   h2 RAGrid Attributes
   .table

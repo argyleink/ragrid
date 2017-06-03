@@ -35,6 +35,9 @@ button
   
   &:active, &:hover
     border-bottom-color: hsl(200,40%,70%)
+    
+  &[ragrid-reset]
+    border-bottom-color: hsl(0, 100%, 50%)
 
 @media(min-width:480px)
   button
@@ -77,6 +80,12 @@ h1
     width: 2em
     background: black
     margin: 0 auto
+  
+  & + p
+    text-align: center
+    margin-top: -3rem
+    color: hsl(0,0%,70%)
+    font-size: 0.8rem
     
 h2
   text-transform: capitalize
