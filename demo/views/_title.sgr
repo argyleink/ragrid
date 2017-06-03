@@ -4,5 +4,5 @@
     li(md) Works like **auto-layout** by **aligning** and **distributing**
     li Capable of 12-column layouts, packery, & masonry
     li Uses recognizable attributes instead of classes
-    li Intrinsic first, extrinsic second
+    li Perfect for components
     li 528 bytes gzipped
