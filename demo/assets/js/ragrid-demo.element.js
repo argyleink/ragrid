@@ -181,61 +181,81 @@ export default class RagridDemo extends HTMLElement {
   
   render(grid) {
     this.innerHTML = `
-      <code class="language-markup" id="demo">
-        &lt;div
-          grid="${grid.direction}"
-          ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
-          ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
-          ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
-          ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
-          ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
-        &gt;…&lt;/div&gt;
-      </code>
+      ${this.code_example(grid)}
       <div grid="columns">
         <nav>
-          <div class="align-panel">
-            ${this.panel_controls.reduce((controls, control) => 
-              `${controls}
-              <div class="controls ${control.section}" grid="columns" horizontally-distributed="equal">
-                ${control.buttons.reduce((items, item) => 
-                  `${items}<button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}"></button>`
-                , '')}
-              </div>
-              `
-            , '')}
-            <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>
-          </div>
-          <div class="feature">
-            <h4>Align Panel can't do this:</h4>
-            ${this.controls.reduce((items, item) => 
-              `${items}
-               <button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}">${item.text}</button>`
-            , '')}
-          </div>
-          <div class="feature">
-            <h4>Demo Grid Controls:</h4>
-            <button ragrid-reset>Reset</button>
-            <button ragrid-add>Add Box</button>
-            <button ragrid-auto-height>Auto Height</button>
-            <button ragrid-auto-width>Auto Width</button>
-          </div>
+          ${this.align_panel()}
+          ${this.ragrid_specials()}
+          ${this.grid_controls()}
         </nav>
-        <article ${grid.width ? 'style="flex:'+grid.width+';"' : ''}><section 
-          style="min-height:${grid.minHeight};max-height:${grid.maxHeight};"
-          grid="${grid.direction}" 
-          ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
-          ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
-          ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
-          ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
-          ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
-        >
-          ${Array.apply(null, {length:grid.boxes}).reduce((boxes, box) => 
-            `${boxes}<div class="demo_box"></div>`
-          , '')}
-        </section></article>
+        ${this.ragrid_demo(grid)}
       </div>
     `
     Prism.highlightElement(this.querySelector('code'))
+  }
+
+  code_example(grid) {
+    return `<code class="language-markup" id="demo">
+              &lt;div
+                grid="${grid.direction}"
+                ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
+                ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
+                ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
+                ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
+                ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
+              &gt;…&lt;/div&gt;
+            </code>`
+  }
+
+  align_panel() {
+    return `<div class="align-panel">
+              ${this.panel_controls.reduce((controls, control) => 
+                `${controls}
+                <div class="controls ${control.section}" grid="columns" horizontally-distributed="equal">
+                  ${control.buttons.reduce((items, item) => 
+                    `${items}<button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}"></button>`
+                  , '')}
+                </div>
+                `
+              , '')}
+              <img src="https://helpx.adobe.com/muse/using/using-align-panel-objects/_jcr_content/main-pars/procedure/proc_par/step_1/step_par/image.img.png/alignpanel.PNG"/>
+            </div>`
+  }
+
+  ragrid_specials() {
+    return `<div class="feature">
+              <h4>Align Panel can't do this:</h4>
+              ${this.controls.reduce((items, item) => 
+                `${items}
+                 <button data-attr-key="${item.attr}" data-attr-val="${item.val}" title="${item.title}">${item.text}</button>`
+              , '')}
+            </div>`
+  }
+
+  grid_controls() {
+    return `<div class="feature">
+              <h4>Demo Grid Controls:</h4>
+              <button ragrid-reset>Reset</button>
+              <button ragrid-add>Add Box</button>
+              <button ragrid-auto-height>Auto Height</button>
+              <button ragrid-auto-width>Auto Width</button>
+            </div>`
+  }
+
+  ragrid_demo(grid) {
+    return `<article ${grid.width ? 'style="flex:'+grid.width+';"' : ''}><section 
+              style="min-height:${grid.minHeight};max-height:${grid.maxHeight};"
+              grid="${grid.direction}" 
+              ${ (grid['horizontally-aligned'] ? 'horizontally-aligned="' + grid['horizontally-aligned'] + '"' : '')}
+              ${ (grid['vertically-aligned'] ? 'vertically-aligned="' + grid['vertically-aligned'] + '"' : '')}
+              ${ (grid['horizontally-distributed'] ? 'horizontally-distributed="' + grid['horizontally-distributed'] + '"' : '')} 
+              ${ (grid['vertically-distributed'] ? 'vertically-distributed="' + grid['vertically-distributed'] + '"' : '')}
+              ${ (grid['order'] ? 'order="' + grid['order'] + '"' : '')}
+            >
+              ${Array.apply(null, {length:grid.boxes}).reduce((boxes, box) => 
+                `${boxes}<div class="demo_box"></div>`
+              , '')}
+            </section></article>`
   }
 }
 
