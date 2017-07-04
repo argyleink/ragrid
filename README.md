@@ -3,8 +3,7 @@
 
 ## Downloading
 ```shell
-npm i ragrid -D
-yarn add ragrid
+npm i ragrid
 bower i ragrid
 ```
 or cheat and let github host it by pointing to `https://rawgit.com/argyleink/ragrid/master/ragrid.min.css`
