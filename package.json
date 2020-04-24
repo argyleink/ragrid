@@ -1,6 +1,6 @@
 {
   "name": "ragrid",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Intrinsic first flexbox grid",
   "main": "ragrid.min.css",
   "scripts": {
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/argyleink/ragrid#readme",
   "dependencies": {
-    "csso": "^3.0.1",
-    "csso-cli": "^1.0.0",
+    "csso": "^4.0.3",
+    "csso-cli": "^3.0.0",
     "stylus": "^0.54.5"
   }
 }
